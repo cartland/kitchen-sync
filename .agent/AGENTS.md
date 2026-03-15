@@ -43,6 +43,10 @@ Regardless of the role, the agent remains a tool, and the user retains ultimate 
     *   **Always** update `.agent/` documentation when learning a critical piece of information that will improve future agent performance. Workflow rules go in `AGENTS.md`; project knowledge goes in `project.md`.
     *   **Proactively suggest and implement meta-improvements**: Whenever you notice a repetitive task, recurring failures, or manual procedures that should be automated, suggest creating a new skill (`.claude/skills/`), an automation script (`scripts/`), or Git Hooks.
     *   **Always** run `/dump-context` before ending a session where significant work was done.
+    *   **Observation duty**: When you notice something wrong or unclear in any documentation (stale info, contradictions, missing context, unclear wording), you MUST act on it immediately:
+        1.  **Fix it** if the fix is obvious and within scope of your current work.
+        2.  **If you cannot fix it now**, add a `> **NOTE (YYYY-MM-DD):** description` block at the point in the document where you noticed the issue. This ensures observations are never lost between sessions.
+    *   **Remove notes after resolving**: When you fix an issue that has a NOTE, remove the NOTE.
 
 ## Branch Management
 

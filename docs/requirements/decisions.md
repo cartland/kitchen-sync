@@ -57,3 +57,5 @@ Decisions that span multiple features or don't belong to a single feature area.
 | AI tools are read-only | AI can query recipes, history, ratings via ToolHandler but has no write access | 2026-03-15 |
 | AI-assisted recipe formatting | Paste freeform text → AI reformats to restricted Markdown → user reviews → approves | 2026-03-15 |
 | AI-assisted meal plan generation | AI proposes weekly plan from recipes/history/ratings → user reviews/edits → approves | 2026-03-15 |
+| Documentation self-improvement obligation | Agents must fix doc issues on sight or leave a NOTE block; observations must not be lost between sessions | 2026-03-15 |
+| Goals vs Status in requirements files | Renamed "Committed" to "Goal" (aspiration) and added "Status" section (reality) to every requirements file; makes it clear whether missing behavior is a bug or not-yet-implemented | 2026-03-15 |

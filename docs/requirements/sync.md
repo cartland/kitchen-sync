@@ -2,7 +2,7 @@
 
 Full offline functionality with cloud sync and conflict resolution.
 
-## Committed
+## Goal
 
 - Full offline functionality: browse recipes, create/edit plans, modify shopping lists, check off items
 - Changes sync to cloud backend when connectivity is restored
@@ -16,6 +16,10 @@ Full offline functionality with cloud sync and conflict resolution.
 - Soft delete with 30-day trash for all user-deletable entities
 - Trash visibility: all household members can see and restore trashed items
 - Account deletion + full data export as JSONL
+
+## Status
+
+Not started.
 
 ## Proposed
 

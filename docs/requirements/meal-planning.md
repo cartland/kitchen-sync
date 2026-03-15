@@ -2,7 +2,7 @@
 
 Flexible weekly meal scheduling with recipe selection and ratings.
 
-## Committed
+## Goal
 
 - "Week" is a flexible, preference-based concept (e.g., 4 meals Mon–Thu at 6pm)
 - Default plan duration is one week
@@ -14,6 +14,10 @@ Flexible weekly meal scheduling with recipe selection and ratings.
 - Any household member can publish a meal plan (no approval required)
 - AI-assisted meal plan generation: AI queries recipes, history, ratings, and variety data → proposes a weekly plan → user reviews/edits → approves to apply (see `ai-features.md`)
 - Per-person ratings: like vs. don't like, with household aggregate view
+
+## Status
+
+Not started.
 
 ## Proposed
 
