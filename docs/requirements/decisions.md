@@ -17,3 +17,14 @@ Decisions that span multiple features or don't belong to a single feature area.
 | Error handling: Result\<D, E\> sealed type | Never throw (except CancellationException), exhaustive when expressions | 2026-03-15 |
 | CI: GitHub Actions | Build, test, lint, format check on every PR from day one | 2026-03-15 |
 | First milestone: Recipes + meal plan | Core loop: enter recipes, plan meals for the week | 2026-03-15 |
+| Household model: single per user | One household membership at a time; invite link to join | 2026-03-15 |
+| Recipe search: full search + filters | Search by name/ingredients, filter by cook time, rating, last cooked | 2026-03-15 |
+| Conflict resolution UI: pick one version | Show both versions, user picks "mine" or "theirs"; no manual merge | 2026-03-15 |
+| Testing strategy: full pyramid | Unit + integration + E2E tests | 2026-03-15 |
+| Scale target: small household | ~2-6 members, ~200 recipes; optimize for simplicity over scale | 2026-03-15 |
+| Deletion model: soft delete | 30-day trash before permanent removal | 2026-03-15 |
+| Privacy: account deletion + data export | Full data export (recipes, plans as JSON/files); account deletion available | 2026-03-15 |
+| Shopping checkout UX: gray out in place | Checked items get strikethrough, remain visible, can be unchecked | 2026-03-15 |
+| Shopping export: grouped by category | Copy export grouped by grocery category (produce, dairy, meat, etc.) | 2026-03-15 |
+| Pantry scope: shared per household | One staples list per household, all members can view and edit | 2026-03-15 |
+| Calendar event detail: recipe name only | Event title is recipe name; no description or ingredients in the event | 2026-03-15 |

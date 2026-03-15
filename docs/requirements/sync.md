@@ -10,6 +10,9 @@ Full offline functionality with cloud sync and conflict resolution.
   - Show error on conflict
   - Keep unsaved data available in the UI
   - Offer a button to download unsaved data as a local file for manual recovery
+- Conflict resolution UI: show both versions, user picks "mine" or "theirs" (no manual merge)
+- Soft delete with 30-day trash for all user-deletable entities
+- Account deletion + full data export (recipes, plans as JSON/files)
 
 ## Proposed
 
