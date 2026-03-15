@@ -7,7 +7,7 @@ This document outlines the shared principles and workflow for all AI agents cont
 1.  **Single Source of Truth**: This directory, `.agent/`, is the single source of truth for all AI agent instructions.
     *   **`AGENTS.md` (This file):** The high-level charter and core workflow.
     *   **`project.md`:** Project-specific technical knowledge (architecture, domain, open questions).
-    *   **`workflows/`:** Step-by-step playbooks for common tasks, serving as both detailed instructions for agents and user-triggerable commands (e.g., slash commands).
+    *   **`.claude/skills/`:** Slash command skills (e.g., `/dump-context`, `/create-pr`). Each skill is a `SKILL.md` with YAML frontmatter.
 2.  **Consistency**: All agents must follow the workflows defined here to ensure predictable and consistent contributions.
 
 ## Agent Role
@@ -41,7 +41,7 @@ Regardless of the role, the agent remains a tool, and the user retains ultimate 
 
 4.  **Self Improvements**:
     *   **Always** update `.agent/` documentation when learning a critical piece of information that will improve future agent performance. Workflow rules go in `AGENTS.md`; project knowledge goes in `project.md`.
-    *   **Proactively suggest and implement meta-improvements**: Whenever you notice a repetitive task, recurring failures, or manual procedures that should be automated, suggest creating a new workflow (`.agent/workflows/`), an automation script (`scripts/`), or Git Hooks.
+    *   **Proactively suggest and implement meta-improvements**: Whenever you notice a repetitive task, recurring failures, or manual procedures that should be automated, suggest creating a new skill (`.claude/skills/`), an automation script (`scripts/`), or Git Hooks.
     *   **Always** run `/dump-context` before ending a session where significant work was done.
 
 ## Branch Management
@@ -135,4 +135,4 @@ Use `bd` (Beads CLI) for cross-session project tracking. See `project.md` for qu
 |------|----------|-----------|
 | `AGENTS.md` (this file) | Safety rules, git workflow, core processes | Always (entry point) |
 | `project.md` | Project knowledge, domain, architecture, task management | Always (entry point) |
-| `workflows/` | Step-by-step playbooks for common tasks | Specific operations |
+| `.claude/skills/` | Slash command skills (`/dump-context`, `/create-pr`) | Specific operations |

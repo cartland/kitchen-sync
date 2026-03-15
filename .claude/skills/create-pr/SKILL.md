@@ -1,6 +1,6 @@
 ---
 description: Create a standardized Pull Request with gathered context and proper naming.
-allowed-tools: Bash(*), Read, Glob, Grep
+allowed-tools: Bash(*), Read, Write, Glob, Grep
 ---
 
 # Create Pull Request

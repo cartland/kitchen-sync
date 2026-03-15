@@ -2,8 +2,30 @@
   "hooks": {
     "PreToolUse": [
       {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/protect-beads-files.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/protect-beads-files.sh"
+          }
+        ]
+      },
+      {
         "matcher": "Bash",
         "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/protect-beads-files.sh"
+          },
           {
             "type": "command",
             "command": ".claude/hooks/block-admin-bypass.sh"
