@@ -65,6 +65,20 @@ Architecture decisions are documented as ADRs in `docs/architecture/`.
 
 - Recipe Markdown template format (user will provide later)
 
+## Resolved Questions (2026-03-15)
+
+- **Household model** → single household per user; invite link to join
+- **Recipe search** → full search + filters (name, ingredients, cook time, rating, last cooked)
+- **Calendar event detail** → recipe name as title only
+- **Pantry scope** → shared per household (one list, all members edit)
+- **Conflict resolution UI** → pick one version (mine vs theirs), no manual merge
+- **Testing strategy** → full pyramid (unit + integration + E2E)
+- **Scale target** → small household (~2-6 members, ~200 recipes)
+- **Shopping checkout UX** → checked items gray out in place (strikethrough, can uncheck)
+- **Shopping export format** → grouped by grocery category
+- **Deletion model** → soft delete with 30-day trash
+- **Privacy** → account deletion + full data export (JSON/files)
+
 ## Task Management
 
 ### `bd` (Beads CLI)

@@ -11,6 +11,9 @@ Consolidated grocery lists with smart merging, pantry management, and checkout f
 - Confirm remaining items you have at home
 - Checkable list: tap items to check them off while shopping, state persists during the trip
 - Copy-friendly: easy copy/paste of remaining (unchecked) items for manual ordering on Safeway's website
+- Checked items gray out in place (strikethrough); can be unchecked during shopping
+- Copy export grouped by grocery category (produce, dairy, meat, etc.)
+- Shared household pantry: one staples list per household, all members can view and edit
 
 ## Proposed
 
