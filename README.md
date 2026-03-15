@@ -8,5 +8,4 @@ See [docs/requirements/](docs/requirements/) for the full product requirements.
 
 ## Open Questions
 
-- Platform and tech stack still open (Android .gitignore exists but no code yet)
 - Recipe Markdown template format (user will provide later)
