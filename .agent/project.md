@@ -84,7 +84,7 @@ Architecture decisions are documented as ADRs in `docs/architecture/`.
 - **Roles** → Admin and Member per household; Admins invite/remove/delete; at least one Admin required; auto-promote on last Admin departure; orphaned households deleted
 - **Invite links** → multi-use, 1-day expiry, revocable by Admins
 - **Leaving household** → data stays, ratings removed
-- **Recipe Markdown template** → restricted Markdown (headers, bullets, bold); sections: Title, Ingredients, Preparation, Cooking
+- **Recipe Markdown template** → restricted Markdown (headers, bullets, bold); sections: Title, Intro, Ingredients, Preparation, Cooking
 - **Recipe ownership** → any household member can edit any recipe
 - **Ingredient units** → typed sealed class (metric + imperial) plus freeform text variant (no math on freeform)
 - **Servings & scaling** → freeform text for serving size; no automatic scaling

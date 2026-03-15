@@ -17,7 +17,7 @@ Decisions that span multiple features or don't belong to a single feature area.
 | Error handling: Result\<D, E\> sealed type | Never throw (except CancellationException), exhaustive when expressions | 2026-03-15 |
 | CI: GitHub Actions | Build, test, lint, format check on every PR from day one | 2026-03-15 |
 | First milestone: Recipes + meal plan | Core loop: enter recipes, plan meals for the week | 2026-03-15 |
-| Household model: single per user | One household membership at a time; invite link to join | 2026-03-15 |
+| ~~Household model: single per user~~ | ~~One household membership at a time~~ — **Superseded** by "Multiple households per user" below | 2026-03-15 |
 | Recipe search: full search + filters | Search by name/ingredients, filter by cook time, rating, last cooked | 2026-03-15 |
 | Conflict resolution UI: pick one version | Show both versions, user picks "mine" or "theirs"; no manual merge | 2026-03-15 |
 | Testing strategy: full pyramid | Unit + integration + E2E tests | 2026-03-15 |
@@ -33,7 +33,7 @@ Decisions that span multiple features or don't belong to a single feature area.
 | Invite links: multi-use, 1-day expiry, revocable | Admins generate links; multiple people can join before expiry | 2026-03-15 |
 | Last Admin auto-promotion | If last Admin leaves, remaining Members become Admin; if none remain, household deleted | 2026-03-15 |
 | Leaving household: data stays, ratings removed | Recipes/plans belong to household; departing member's ratings are deleted | 2026-03-15 |
-| Recipe Markdown: restricted format | Headers, bullets, bold only; sections: Title, Ingredients, Preparation, Cooking | 2026-03-15 |
+| Recipe Markdown: restricted format | Headers, bullets, bold only; sections: Title, Intro, Ingredients, Preparation, Cooking | 2026-03-15 |
 | Any member can edit any recipe | No per-recipe ownership; all household members have equal edit access | 2026-03-15 |
 | Ingredient units: typed + freeform | Sealed class with metric/imperial units plus freeform text (no math on freeform) | 2026-03-15 |
 | No ingredient scaling | Serving size is freeform text; no automatic scaling of ingredients | 2026-03-15 |
@@ -60,3 +60,5 @@ Decisions that span multiple features or don't belong to a single feature area.
 | Documentation self-improvement obligation | Agents must fix doc issues on sight or leave a NOTE block; observations must not be lost between sessions | 2026-03-15 |
 | Goals vs Status in requirements files | Renamed "Committed" to "Goal" (aspiration) and added "Status" section (reality) to every requirements file; makes it clear whether missing behavior is a bug or not-yet-implemented | 2026-03-15 |
 | User flows document: single cross-cutting file | Flows cross feature boundaries (onboarding touches identity, recipes, meal planning); a single file is better than per-feature flow docs | 2026-03-15 |
+| **REVISED**: 5-star ratings replace like/dislike | Per-person 1–5 star ratings with household average and count; replaces binary like/dislike model | 2026-03-15 |
+| **REVISED**: Recipe sections include Intro | Sections: Title, Intro, Ingredients, Preparation, Cooking; Intro added for recipe description/notes between title and ingredients | 2026-03-15 |
