@@ -13,10 +13,13 @@ Consolidated grocery lists with smart merging, pantry management, and checkout f
 - Persistent pantry: maintain a list of staples (rice, salt, oil, etc.) that are auto-excluded from shopping lists
 - Confirm remaining items you have at home
 - Checkable list: tap items to check them off while shopping, state persists during the trip
-- Copy-friendly: easy copy/paste of remaining (unchecked) items for manual ordering on Safeway's website
 - Checked items gray out in place (strikethrough); can be unchecked during shopping
-- Copy export grouped by grocery category (produce, dairy, meat, etc.)
+- Archive checked items: removes them from list view (archived boolean + archived timestamp)
+- Copy export of remaining (unchecked) items grouped by grocery category (produce, dairy, meat, etc.)
 - Shared household pantry: one staples list per household, all members can view and edit
+- Two-section UI: collapsible Pantry header and Shopping List header with distinct background colors
+- Shopping list items show meal date badge linking to source recipe and meal plan day
+- Pantry items have "+" to manually add to shopping list
 
 ## Status
 

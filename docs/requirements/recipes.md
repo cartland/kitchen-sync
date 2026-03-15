@@ -6,7 +6,6 @@ Structured recipe management with versioning and snapshots.
 
 - Recipes stored as restricted Markdown (headers, bullets, bold emphasis only)
 - Template sections: Title, Intro, Ingredients, Preparation, Cooking
-- Serving size described in freeform text (not enforced, no automatic scaling)
 - Ingredient units: typed sealed class with common metric and imperial units, plus a freeform text variant (freeform does not support math/scaling)
 - Manual entry with AI-assisted formatting: paste freeform text → AI reformats into restricted Markdown → user reviews preview → approves to save (see `ai-features.md`)
 - Any household member can edit any recipe (no per-recipe ownership)
@@ -27,6 +26,8 @@ Not started.
 
 - URL import for recipes — *Reason: manual entry only for now*
 - Tags/categories for recipes — *Reason: flat list of recipes is sufficient for now*
-- Ingredient scaling by servings — *Reason: serving size is freeform text, no math*
+- Ingredient scaling by servings — *Reason: no serving size field, no math*
+- Serving size field — *Reason: not needed for MVP*
+- Cook time / prep time fields — *Reason: not needed for MVP*
 
 ## Open Questions
