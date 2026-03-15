@@ -223,9 +223,17 @@ Not started.
 
 ## Not Doing
 
+## Missing Screens (to define during sub-discovery)
+
+- **Recipe Diff View**: Mentioned in recipes.md for comparing revisions; no screen defined yet. Needed for Stage 3.
+- **AI Proposal Review**: ADR-010 Prepare/Review/Execute flow needs a review screen for AI-generated content. Needed for Stage 8.
+- **Data Export Flow**: sync.md mentions JSONL export; no flow defined. Needed for Stage 6+.
+- **Invite Link Display**: identity.md describes invite generation; no screen for showing/sharing the link. Needed for Stage 7.
+- **History Browser**: history.md references history browsing; no screen defined. Needed for Stage 10.
+
 ## Open Questions
 
-- **Shopping list lifecycle**: When is a shopping list considered "done"? Manual clear, or auto-clear when a new list is generated?
+- **Shopping list lifecycle**: When is a shopping list considered "done"? Manual clear, or auto-clear when a new list is generated? (Note: partially blocks Stage 4 — must resolve before shipping shopping list generation)
 - **Calendar integration surface**: In-app calendar view, or only push events to Google Calendar? Where does the user trigger sync?
 - **AI Suggest placement**: Where does the "AI Suggest" button live on the Meal Plan Timeline?
 - **Generate Shopping List trigger**: Where does this action live — on the Meal Plan tab, the Shopping tab, or both?

@@ -40,9 +40,13 @@ Resolve open questions and make scaffolding decisions that block implementation.
 
 Stand up the project skeleton so all later stages have something to build on.
 
+### Key ADRs
+
+- [ADR-001](architecture/adr-001-platform-kmp.md) (KMP), [ADR-002](architecture/adr-002-backend-firebase.md) (Firebase), [ADR-003](architecture/adr-003-local-database-room.md) (Room), [ADR-005](architecture/adr-005-module-structure.md) (Clean Architecture), [ADR-006](architecture/adr-006-dependency-injection.md) (kotlin-inject), [ADR-008](architecture/adr-008-ci-github-actions.md) (CI)
+
 ### Work Items
 
-- KMP project skeleton with modules matching [ADR-005](architecture/adr-005-clean-architecture-layers.md) (domain/usecase/data/presentation)
+- KMP project skeleton with modules matching [ADR-005](architecture/adr-005-module-structure.md) (domain/usecase/data/presentation)
 - Dependencies: Room 2.7+, kotlin-inject, Firebase SDK, Compose, testing libs
 - CI pipeline (GitHub Actions): build, test, lint, format
 - Firebase project with Auth + Firestore enabled
@@ -56,10 +60,19 @@ Stand up the project skeleton so all later stages have something to build on.
 
 Build domain models, repositories, and storage — the foundation everything else depends on.
 
+### Key ADRs
+
+- [ADR-004](architecture/adr-004-sync-conflict-detection.md) (Sync/Conflict), [ADR-007](architecture/adr-007-error-handling.md) (Result type)
+
+### Sub-Discovery (resolve before implementation)
+
+- Resolve version field mechanism for non-recipe entities (see [data-model.md](requirements/data-model.md) open question)
+- Clarify ingredient unit field — is it a storage string or a typed sealed class serialized to string? (see [recipes.md](requirements/recipes.md) vs [data-model.md](requirements/data-model.md))
+
 ### Work Items
 
 - Domain models for all 12 entities from [data-model.md](requirements/data-model.md)
-- `Result<D, E>` sealed type per [ADR-007](architecture/adr-007-result-type-error-handling.md)
+- `Result<D, E>` sealed type per [ADR-007](architecture/adr-007-error-handling.md)
 - Repository interfaces
 - Room entities, DAOs, migrations
 - Firestore data sources and security rules
@@ -96,6 +109,7 @@ Full recipe CRUD — the first user-visible feature.
 
 - Confirm Markdown rendering approach
 - Smart paste spec (if needed for first milestone)
+- Define recipe diff view screen (mentioned in [recipes.md](requirements/recipes.md), no screen in [user-flows.md](requirements/user-flows.md))
 
 ### Work Items
 
@@ -118,10 +132,11 @@ Meal scheduling and basic shopping list — completes the first milestone.
 - Default launch tab
 - AI Suggest placement (Stage 4 or defer to Stage 8)
 - Generate Shopping List trigger UX
+- Shopping list lifecycle: what happens to the old list when a new one is generated? (moved from Stage 5 blocker — partially blocks Stage 4)
 
 ### Work Items
 
-- Use cases: add/remove/reschedule meals, create snapshots, generate shopping list
+- Use cases: add/remove/reschedule meals, reference recipe revisions, generate shopping list
 - UI: infinite scrolling timeline, recipe picker bottom sheet, meal item accordion
 - Basic shopping list generation (ingredient consolidation, pantry exclusion)
 - See [meal-planning.md](requirements/meal-planning.md) and [shopping.md](requirements/shopping.md)
@@ -135,14 +150,14 @@ Meal scheduling and basic shopping list — completes the first milestone.
 
 These stages are deliberately vague. Expand each one when Stages 0–4 are complete and priorities are clearer.
 
-| Stage | Area | Expand When |
-|-------|------|-------------|
-| 5 | Shopping (full UI, archive, export) | Stage 4 complete |
-| 6 | Sync & conflict resolution (hardening, conflict UI) | Stage 4 complete |
-| 7 | Household management (invites, roles, member detail, settings) | Stage 4 complete |
-| 8 | AI features (recipe formatting, meal plan generation, AiEngine) | Stage 4 complete |
-| 9 | Calendar integration (Google Calendar API) | Stage 4 complete |
-| 10 | History & variety tracking | Stage 4 complete |
+| Stage | Area | Expand When | Sub-Discovery Notes |
+|-------|------|-------------|---------------------|
+| 5 | Shopping (full UI, archive, export) | Stage 4 complete | Data export flow screen needed |
+| 6 | Sync & conflict resolution (hardening, conflict UI) | Stage 4 complete | |
+| 7 | Household management (invites, roles, member detail, settings) | Stage 4 complete | Invite link display screen needed |
+| 8 | AI features (recipe formatting, meal plan generation, AiEngine) | Stage 4 complete | AI proposal review UI needed; key ADRs: [ADR-009](architecture/adr-009-ai-integration.md), [ADR-010](architecture/adr-010-ai-action-model.md) |
+| 9 | Calendar integration (Google Calendar API) | Stage 4 complete | |
+| 10 | History & variety tracking | Stage 4 complete | History browsing screen needed |
 
 ## Open Questions → Stage Blockers
 
@@ -153,7 +168,7 @@ These stages are deliberately vague. Expand each one when Stages 0–4 are compl
 | Default launch tab | Stage 4 | kitchen-sync-46u |
 | AI Suggest placement | Stage 4 or 8 | kitchen-sync-46u |
 | Generate Shopping List trigger | Stage 4 | kitchen-sync-46u |
-| Shopping list lifecycle | Stage 5 | kitchen-sync-46u |
+| Shopping list lifecycle | Stage 4 (partially) | kitchen-sync-46u — must resolve "what happens to old list" before shipping generation |
 | Calendar integration surface | Stage 9 | kitchen-sync-46u |
 | Meal Plan history browsing | Stage 10 | kitchen-sync-46u |
 

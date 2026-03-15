@@ -166,6 +166,7 @@ Not started.
 ## Open Questions
 
 - **Ingredient quantity type**: String allows freeform input ("2", "1/2", "a pinch") but prevents math. Is this sufficient?
+- **Ingredient unit type**: The `unit` field is stored as a nullable string in the data model, but [recipes.md](recipes.md) specifies a "typed sealed class with common metric and imperial units, plus a freeform text variant." Clarify whether the sealed class is a domain-layer abstraction over string storage or if the data model needs a richer type.
 - **Version field for non-recipe entities**: Recipes use the revision model for conflict detection. Other entities (meal plan entries, shopping list items, etc.) may still need a version field per ADR-004. Exact mechanism TBD during implementation.
 
 ## Resolved Questions
