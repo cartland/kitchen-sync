@@ -32,3 +32,6 @@ google-services.json
 
 # Android Profiling
 *.hprof
+
+# Local temp directory (agent workspace)
+.tmp/
