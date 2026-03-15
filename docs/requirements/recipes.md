@@ -14,8 +14,8 @@ Structured recipe management with revision history.
 - Meal plans reference a specific revision — no separate snapshot needed
 - Diff view available on demand: compare any two revisions of a recipe
 - All revisions kept permanently
-- Conflict detection: edits include `basedOnRevision`; if it doesn't match `currentRevision`, the user resolves the conflict
-- Full search + filters: search by name and ingredients, filter by household rating, last cooked date
+- Conflict detection: edits include `basedOnRevision`; if it doesn't match `currentRevision`, last-write-wins for MVP (conflict resolution UI deferred)
+- Full search by name and ingredients; rating and last-cooked filters deferred
 
 ## Status
 
