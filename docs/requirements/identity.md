@@ -2,7 +2,7 @@
 
 Authentication and household membership model.
 
-## Committed
+## Goal
 
 - Google sign-in for authentication (aligns with Google Calendar integration)
 - Household model: multiple members share recipes, plans, and shopping lists
@@ -20,6 +20,10 @@ Authentication and household membership model.
   - Ratings by the departing member are removed
 - Last Admin deletion: remaining Members are auto-promoted to Admin
 - Orphaned household (no members remain): household is deleted
+
+## Status
+
+Not started.
 
 ## Proposed
 

@@ -2,7 +2,7 @@
 
 Consolidated grocery lists with smart merging, pantry management, and checkout flow.
 
-## Committed
+## Goal
 
 - One active shopping list at a time per household
 - Generate a consolidated list from selected recipes
@@ -17,6 +17,10 @@ Consolidated grocery lists with smart merging, pantry management, and checkout f
 - Checked items gray out in place (strikethrough); can be unchecked during shopping
 - Copy export grouped by grocery category (produce, dairy, meat, etc.)
 - Shared household pantry: one staples list per household, all members can view and edit
+
+## Status
+
+Not started.
 
 ## Proposed
 

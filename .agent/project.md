@@ -68,6 +68,12 @@ Architecture decisions are documented as ADRs in `docs/architecture/`.
 - **Tool pattern**: Domain capabilities exposed as read-only tools via ToolHandler interface. AI never writes data directly.
 - **Reference implementation**: Battery Butler at `/tmp/battery-butler/` — adapted patterns (AiEngine, ToolHandler, tool definitions)
 
+## Documentation Principles
+
+- **Self-improving project**: All agents are obligated to improve documentation on sight. Fix issues when you can; leave a NOTE when you can't.
+- **Goals vs Status**: Requirements files always distinguish aspiration (Goal) from reality (Status). This makes it clear whether missing behavior is a bug or simply not-yet-implemented.
+- **Notes are cheap**: When in doubt, leave a `> **NOTE (YYYY-MM-DD):** description` block rather than lose an observation. Remove the NOTE after resolving the issue.
+
 ## Open Questions
 
 - Calendar integration details depend on Google Calendar API capabilities

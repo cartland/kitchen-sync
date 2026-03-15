@@ -15,6 +15,15 @@ A meal planning app for households — from recipe selection to grocery shopping
 | Offline & Sync | Full offline functionality, cloud sync, conflict handling | [sync.md](sync.md) |
 | AI Features | LLM-powered workflows with Prepare / Review / Execute model | [ai-features.md](ai-features.md) |
 
+Each feature file uses this section structure:
+
+- **Goal** — The aspirational target: what this feature should do when fully complete (approved design decisions).
+- **Status** — What is actually implemented today. Updated as implementation progresses.
+- **Proposed** — Ideas under consideration but not yet committed.
+- **Deferred** — Decided to do later, not in the current scope.
+- **Not Doing** — Explicitly rejected, with rationale.
+- **Open Questions** — Unresolved decisions that need input.
+
 ## Cross-cutting Decisions
 
 See [decisions.md](decisions.md) for decisions that span multiple features.
