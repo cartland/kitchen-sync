@@ -1,5 +1,6 @@
 ---
 description: Capture session knowledge (tasks, decisions, workarounds) into beads and docs before session ends.
+allowed-tools: Bash(*), Read, Write, Edit, Glob, Grep
 ---
 
 # Dump Context

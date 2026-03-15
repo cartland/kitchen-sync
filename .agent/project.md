@@ -108,4 +108,4 @@ git commit -m "chore(beads): Update task tracking"
 |------|----------|-----------|
 | `project.md` (this file) | Project knowledge, domain, task management | Always (entry point) |
 | `AGENTS.md` | Safety rules, git workflow, core processes | Always (entry point) |
-| `workflows/` | Step-by-step playbooks for common tasks | Specific operations |
+| `.claude/skills/` | Slash command skills (`/dump-context`, `/create-pr`) | Specific operations |
