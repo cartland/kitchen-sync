@@ -16,7 +16,7 @@ AI agents contributing to this repository must follow the guidelines in `.agent/
 
 - Create a new branch for your feature or fix.
 - Provide a clear description of changes.
-- See `.agent/workflows/create-pr.md` for the standardized PR workflow.
+- Use `/create-pr` for the standardized PR workflow.
 
 ## Task Management
 

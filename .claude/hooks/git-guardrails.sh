@@ -77,4 +77,9 @@ if echo "$STRIPPED" | grep -qE '\bgit\s+(checkout|restore)\s+\.\s*$'; then
   deny "BLOCKED: Discarding all changes is destructive. Use git stash or target specific files."
 fi
 
+# --- Block tag creation ---
+if echo "$STRIPPED" | grep -qE '\bgit\s+tag\b' && ! echo "$STRIPPED" | grep -qE '\bgit\s+tag\s+-l\b'; then
+  deny "BLOCKED: Tag creation is restricted. Use CI/release workflows to create tags."
+fi
+
 exit 0
