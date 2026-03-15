@@ -28,3 +28,27 @@ Decisions that span multiple features or don't belong to a single feature area.
 | Shopping export: grouped by category | Copy export grouped by grocery category (produce, dairy, meat, etc.) | 2026-03-15 |
 | Pantry scope: shared per household | One staples list per household, all members can view and edit | 2026-03-15 |
 | Calendar event detail: recipe name only | Event title is recipe name; no description or ingredients in the event | 2026-03-15 |
+| **REVISED**: Multiple households per user | Users can join multiple households with an active household switcher; replaces single-household model | 2026-03-15 |
+| Roles: Admin and Member | Admins can invite/remove/delete; Members can edit all shared data; at least one Admin required | 2026-03-15 |
+| Invite links: multi-use, 1-day expiry, revocable | Admins generate links; multiple people can join before expiry | 2026-03-15 |
+| Last Admin auto-promotion | If last Admin leaves, remaining Members become Admin; if none remain, household deleted | 2026-03-15 |
+| Leaving household: data stays, ratings removed | Recipes/plans belong to household; departing member's ratings are deleted | 2026-03-15 |
+| Recipe Markdown: restricted format | Headers, bullets, bold only; sections: Title, Ingredients, Preparation, Cooking | 2026-03-15 |
+| Any member can edit any recipe | No per-recipe ownership; all household members have equal edit access | 2026-03-15 |
+| Ingredient units: typed + freeform | Sealed class with metric/imperial units plus freeform text (no math on freeform) | 2026-03-15 |
+| No ingredient scaling | Serving size is freeform text; no automatic scaling of ingredients | 2026-03-15 |
+| Single recipe per meal slot | No multi-recipe meals; use "related recipes" for bidirectional linking | 2026-03-15 |
+| No recurring meals | Deferred; not needed for first release | 2026-03-15 |
+| Default plan duration: one week | Meal plans default to a week | 2026-03-15 |
+| No meal plan approval required | Any household member can publish a meal plan | 2026-03-15 |
+| One shopping list per household | No multiple lists (e.g., per store) | 2026-03-15 |
+| Manual shopping list items | Users can add items not from recipes | 2026-03-15 |
+| No ingredient merging | Each ingredient line stays separate on the shopping list | 2026-03-15 |
+| Grocery categories: optional built-in DB | Common ingredients mapped to categories; uncategorized items allowed | 2026-03-15 |
+| Real-time sync via Firestore listeners | Changes appear instantly when online | 2026-03-15 |
+| Conflict granularity: per-field | Conflicts detected and resolved at the field level | 2026-03-15 |
+| Trash visible to all household members | Any member can see and restore trashed items | 2026-03-15 |
+| Data export format: JSONL | Full data export as JSONL | 2026-03-15 |
+| No push notifications | No notifications for meal plans, shopping lists, or member changes | 2026-03-15 |
+| Dark mode from day one | Support dark mode in initial release | 2026-03-15 |
+| Onboarding: add recipes → plan meals | Default unnamed household created on first launch; name required when sharing | 2026-03-15 |
