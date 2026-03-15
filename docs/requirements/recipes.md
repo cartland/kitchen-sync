@@ -13,7 +13,7 @@ Structured recipe management with versioning and snapshots.
 - Related recipes: bidirectional links between any two recipes
 - Recipes evolve over time; when used in a meal plan, the full content is snapshotted
 - Diff view available on demand: compare a snapshot to the current version of a recipe
-- Full search + filters: search by name and ingredients, filter by cook time, household rating, last cooked date
+- Full search + filters: search by name and ingredients, filter by household rating, last cooked date
 
 ## Status
 
