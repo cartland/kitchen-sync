@@ -1,6 +1,6 @@
 # Recipe Storage
 
-Structured recipe management with versioning and snapshots.
+Structured recipe management with revision history.
 
 ## Goal
 
@@ -10,8 +10,11 @@ Structured recipe management with versioning and snapshots.
 - Manual entry with AI-assisted formatting: paste freeform text → AI reformats into restricted Markdown → user reviews preview → approves to save (see `ai-features.md`)
 - Any household member can edit any recipe (no per-recipe ownership)
 - Related recipes: bidirectional links between any two recipes
-- Recipes evolve over time; when used in a meal plan, the full content is snapshotted
-- Diff view available on demand: compare a snapshot to the current version of a recipe
+- Recipes use a revision model: every edit creates a new immutable RecipeRevision with a monotonically increasing sequence number
+- Meal plans reference a specific revision — no separate snapshot needed
+- Diff view available on demand: compare any two revisions of a recipe
+- All revisions kept permanently
+- Conflict detection: edits include `basedOnRevision`; if it doesn't match `currentRevision`, the user resolves the conflict
 - Full search + filters: search by name and ingredients, filter by household rating, last cooked date
 
 ## Status

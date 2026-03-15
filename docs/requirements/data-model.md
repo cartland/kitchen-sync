@@ -44,15 +44,12 @@ Entity definitions for Kitchen Sync. All entities include `createdTimestamp` and
 |-------|------|-------|
 | recipeId | string | |
 | householdId | string | FK → Household |
-| title | string | |
-| intro | string | Description/notes between title and ingredients |
-| ingredients | list\<Ingredient\> | Structured list (see below) |
-| preparation | string | Restricted Markdown (headers, bullets, bold) |
-| cooking | string | Restricted Markdown |
+| currentRevision | int | Sequence number of the latest revision |
 | createdBy | string | FK → User |
-| modifiedBy | string | FK → User |
 | deleted | boolean | Soft delete flag |
 | deletedTimestamp | timestamp | Null when not deleted; 30-day retention |
+
+User-visible content (title, intro, ingredients, preparation, cooking) lives in RecipeRevision.
 
 ### Ingredient
 
@@ -73,22 +70,26 @@ Sub-entity of Recipe (embedded in the ingredients list).
 
 Bidirectional — order does not matter.
 
-### Recipe Snapshot
+### RecipeRevision
 
-Full copy of recipe content frozen at a point in time. Captured when a recipe is assigned to a meal plan.
+Immutable record of recipe content at a point in time. Every edit creates a new revision with an incremented sequence number. All revisions are kept permanently.
 
 | Field | Type | Notes |
 |-------|------|-------|
-| snapshotId | string | |
-| recipeId | string | FK → Recipe (source) |
-| revisionTimestamp | timestamp | When the snapshot was captured |
+| recipeId | string | FK → Recipe |
+| revision | int | Monotonically increasing sequence number (composite key with recipeId) |
 | title | string | |
-| intro | string | |
+| intro | string | Description/notes between title and ingredients |
 | ingredients | list\<Ingredient\> | |
-| preparation | string | |
-| cooking | string | |
+| preparation | string | Restricted Markdown (headers, bullets, bold) |
+| cooking | string | Restricted Markdown |
+| editedBy | string | FK → User |
+| editedAt | timestamp | When this revision was created |
+| basedOnRevision | int | The revision the author was viewing when editing; used for conflict detection |
 
-> **Open (kitchen-sync-qdl):** Review when entities reference the live recipe vs. a snapshot. Meal plan entries use snapshots, but how do shopping list items connect — to the live recipe, the meal plan entry, or the snapshot? See bead for full context.
+**Conflict detection:** When submitting an edit, the client sends `basedOnRevision`. If it matches the recipe's `currentRevision`, the server writes a new revision. If not, a local conflict record is created for the user to resolve (pick mine vs theirs).
+
+**Snapshots are just revision pointers.** Meal plan entries reference a specific `recipeId` + `revision` — no separate snapshot entity needed.
 
 ### Meal Plan Entry
 
@@ -98,8 +99,8 @@ Full copy of recipe content frozen at a point in time. Captured when a recipe is
 | householdId | string | FK → Household |
 | date | date | Calendar date for the meal |
 | displayOrder | int | Order within the day (0-indexed) |
-| recipeId | string | FK → Recipe (live reference) |
-| snapshotId | string | FK → Recipe Snapshot |
+| recipeId | string | FK → Recipe |
+| revision | int | FK → RecipeRevision (the revision at time of planning) |
 
 ### Rating
 
@@ -139,13 +140,11 @@ No `modifiedTimestamp` — ratings are replaced, not edited.
 ```
 User ──┬── Membership ──── Household
        │                      │
-       ├── Rating ────────────┼── Recipe ──── Ingredient (embedded)
+       ├── Rating ────────────┼── Recipe ──── RecipeRevision ──── Ingredient (embedded)
        │                      │     │
        └── Invite Link ───────┘     ├── Related Recipe Link
                                     │
-                              Recipe Snapshot
-                                    │
-                              Meal Plan Entry
+                              Meal Plan Entry (references recipeId + revision)
                                     │
                               Shopping List Item
 
@@ -166,6 +165,9 @@ Not started.
 
 ## Open Questions
 
-- **Snapshot vs. live recipe references**: When do meal plans and shopping lists reference the live recipe vs. a frozen snapshot? (tracked as kitchen-sync-qdl)
 - **Ingredient quantity type**: String allows freeform input ("2", "1/2", "a pinch") but prevents math. Is this sufficient?
-- **Version field for sync**: Entities likely need a `version` field for conflict detection (per ADR-004). Exact mechanism TBD during implementation.
+- **Version field for non-recipe entities**: Recipes use the revision model for conflict detection. Other entities (meal plan entries, shopping list items, etc.) may still need a version field per ADR-004. Exact mechanism TBD during implementation.
+
+## Resolved Questions
+
+- **Snapshot vs. live recipe references** (kitchen-sync-qdl): Resolved — replaced Recipe Snapshot entity with RecipeRevision model. Meal plan entries reference a specific `recipeId` + `revision`. Shopping list items connect through the meal plan entry's revision pointer. No separate snapshot entity needed. All revisions kept permanently.
