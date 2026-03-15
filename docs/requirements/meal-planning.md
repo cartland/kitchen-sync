@@ -13,7 +13,7 @@ Flexible weekly meal scheduling with recipe selection and ratings.
 - Select recipes for upcoming meals
 - Any household member can publish a meal plan (no approval required)
 - AI-assisted meal plan generation: AI queries recipes, history, ratings, and variety data → proposes a weekly plan → user reviews/edits → approves to apply (see `ai-features.md`)
-- Per-person ratings: like vs. don't like, with household aggregate view
+- Per-person ratings: 1–5 stars, with household average and count
 
 ## Status
 

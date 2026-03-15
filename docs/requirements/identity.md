@@ -6,7 +6,7 @@ Authentication and household membership model.
 
 - Google sign-in for authentication (aligns with Google Calendar integration)
 - Household model: multiple members share recipes, plans, and shopping lists
-- Each member has their own recipe ratings that aggregate into a household view (e.g., "2 of 3 liked it")
+- Each member has their own recipe ratings (1–5 stars) that aggregate into a household average with count
 - Multiple households per user: users can belong to more than one household
 - Active household concept: app shows one household at a time with a switcher UI
 - Default household created on first launch (unnamed); household name required when sharing/inviting
