@@ -1,0 +1,80 @@
+#!/bin/bash
+# Git workflow guardrails for Claude Code agents.
+# Blocks dangerous operations and enforces repo conventions.
+
+INPUT=$(cat)
+COMMAND=$(echo "$INPUT" | jq -r '.tool_input.command // empty')
+[ -z "$COMMAND" ] && exit 0
+
+REPO_ROOT="$(git rev-parse --show-toplevel 2>/dev/null)"
+
+deny() {
+  jq -n --arg reason "$1" '{
+    "hookSpecificOutput": {
+      "hookEventName": "PreToolUse",
+      "permissionDecision": "deny",
+      "permissionDecisionReason": $reason
+    }
+  }'
+  exit 0
+}
+
+# Strip heredoc bodies first (before quote stripping removes the EOF marker),
+# then strip quoted strings to avoid false positives on prose content.
+STRIPPED=$(echo "$COMMAND" | sed '/<<.*EOF/,/^EOF/d' | sed -E "s/'[^']*'//g; s/\"[^\"]*\"//g")
+
+# --- Warn on shell control flow (check first, applies to all commands) ---
+# Note: && and || are allowed (simple chaining). Only warn on loop/conditional keywords.
+if echo "$STRIPPED" | grep -qE '\b(for|while|until|if|do|done|then|fi|elif|else)\b'; then
+  echo "WARNING: Shell control flow detected (for/while/if). Prefer separate Bash tool calls." >&2
+fi
+
+# --- Block git -C ---
+if echo "$STRIPPED" | grep -qE '\bgit\s+-C\b'; then
+  deny "BLOCKED: Don't use git -C. Run git from the repository root."
+fi
+
+# --- git push checks ---
+if echo "$STRIPPED" | grep -qE '\bgit\s+push\b'; then
+
+  # Block push to main
+  if echo "$STRIPPED" | grep -qE '\bgit\s+push\b.*\b(main|master)\b'; then
+    deny "BLOCKED: Never push directly to main. Create a branch and open a PR."
+  fi
+  if [ -n "$REPO_ROOT" ]; then
+    CURRENT_BRANCH=$(git branch --show-current 2>/dev/null)
+    if [ "$CURRENT_BRANCH" = "main" ] || [ "$CURRENT_BRANCH" = "master" ]; then
+      deny "BLOCKED: You are on '$CURRENT_BRANCH'. Switch to a feature branch before pushing."
+    fi
+  fi
+
+  # Block force push — require --force-with-lease over --force
+  if echo "$STRIPPED" | grep -qE '\bgit\s+push\b.*(-f\b|--force\b|--force-with-lease\b)'; then
+    if echo "$STRIPPED" | grep -qE '\bgit\s+push\b.*\b(main|master)\b'; then
+      deny "BLOCKED: Force push to main/master is never allowed."
+    fi
+    if echo "$STRIPPED" | grep -qE '\bgit\s+push\b.*--force\b' && ! echo "$STRIPPED" | grep -qF -- '--force-with-lease'; then
+      deny "BLOCKED: Use --force-with-lease instead of --force for safety."
+    fi
+  fi
+fi
+
+# --- Enforce squash merge ---
+if echo "$STRIPPED" | grep -qE '\bgh\s+pr\s+merge\b'; then
+  if ! echo "$STRIPPED" | grep -qF -- '--squash'; then
+    deny "BLOCKED: Always use --squash --delete-branch when merging PRs."
+  fi
+fi
+
+# --- Block destructive git commands ---
+if echo "$STRIPPED" | grep -qE '\bgit\s+reset\s+--hard\b'; then
+  deny "BLOCKED: git reset --hard discards commits. Use git stash or a backup branch."
+fi
+if echo "$STRIPPED" | grep -qE '\bgit\s+clean\b.*-[a-zA-Z]*f'; then
+  deny "BLOCKED: git clean -f permanently deletes untracked files."
+fi
+if echo "$STRIPPED" | grep -qE '\bgit\s+(checkout|restore)\s+\.\s*$'; then
+  deny "BLOCKED: Discarding all changes is destructive. Use git stash or target specific files."
+fi
+
+exit 0
