@@ -107,6 +107,7 @@ Architecture decisions are documented as ADRs in `docs/architecture/`.
 - **Recipe search** → full search + filters (name, ingredients, rating, last cooked)
 - **Calendar event detail** → recipe name as title only
 - **Pantry scope** → shared per household (one list, all members edit)
+- **Recipe revision model** → replaces snapshots; every edit creates immutable RecipeRevision with sequence number; meal plans reference recipeId + revision; all revisions kept permanently; conflict detection via basedOnRevision
 - **Conflict resolution UI** → pick one version (mine vs theirs), no manual merge
 - **Testing strategy** → full pyramid (unit + integration + E2E)
 - **Scale target** → small household (~2-6 members, ~200 recipes)

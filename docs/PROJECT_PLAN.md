@@ -148,8 +148,8 @@ These stages are deliberately vague. Expand each one when Stages 0–4 are compl
 
 | Question | Blocks | Source |
 |----------|--------|--------|
-| Snapshot vs live recipe references | Stage 2, 4 | kitchen-sync-qdl |
-| Version field for sync | Stage 2 | [data-model.md](requirements/data-model.md) |
+| ~~Snapshot vs live recipe references~~ | ~~Stage 2, 4~~ | ~~kitchen-sync-qdl~~ — **Resolved**: revision model replaces snapshots |
+| Version field for non-recipe entities | Stage 2 | [data-model.md](requirements/data-model.md) — recipes use revision model; other entities TBD |
 | Default launch tab | Stage 4 | kitchen-sync-46u |
 | AI Suggest placement | Stage 4 or 8 | kitchen-sync-46u |
 | Generate Shopping List trigger | Stage 4 | kitchen-sync-46u |
