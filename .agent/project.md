@@ -63,11 +63,35 @@ Architecture decisions are documented as ADRs in `docs/architecture/`.
 
 ## Open Questions
 
-- Recipe Markdown template format (user will provide later)
+- AI-driven UX for complex meal planning workflows (to be discussed)
+- Calendar integration details depend on Google Calendar API capabilities
 
 ## Resolved Questions (2026-03-15)
 
-- **Household model** → single household per user; invite link to join
+- **Household model** → **REVISED**: multiple households per user; active household switcher; default unnamed household on first launch; name required when sharing
+- **Roles** → Admin and Member per household; Admins invite/remove/delete; at least one Admin required; auto-promote on last Admin departure; orphaned households deleted
+- **Invite links** → multi-use, 1-day expiry, revocable by Admins
+- **Leaving household** → data stays, ratings removed
+- **Recipe Markdown template** → restricted Markdown (headers, bullets, bold); sections: Title, Ingredients, Preparation, Cooking
+- **Recipe ownership** → any household member can edit any recipe
+- **Ingredient units** → typed sealed class (metric + imperial) plus freeform text variant (no math on freeform)
+- **Servings & scaling** → freeform text for serving size; no automatic scaling
+- **Related recipes** → bidirectional links between any two recipes
+- **Meal slot** → single recipe per slot; no multi-recipe meals
+- **Recurring meals** → deferred; not needed for first release
+- **Meal plan duration** → default one week
+- **Meal plan approval** → not required; any member can publish
+- **Shopping list count** → one active list per household
+- **Manual shopping items** → yes, users can add items not from recipes
+- **Ingredient merging** → no merging; each line stays separate
+- **Grocery categories** → built-in DB of common ingredients; optional (uncategorized OK)
+- **Real-time sync** → yes, via Firestore listeners
+- **Conflict granularity** → per-field
+- **Trash visibility** → all household members can see and restore
+- **Data export** → JSONL format
+- **Push notifications** → none
+- **Dark mode** → supported from day one
+- **Onboarding** → add recipes → plan meals; default unnamed household created automatically
 - **Recipe search** → full search + filters (name, ingredients, cook time, rating, last cooked)
 - **Calendar event detail** → recipe name as title only
 - **Pantry scope** → shared per household (one list, all members edit)
@@ -77,7 +101,7 @@ Architecture decisions are documented as ADRs in `docs/architecture/`.
 - **Shopping checkout UX** → checked items gray out in place (strikethrough, can uncheck)
 - **Shopping export format** → grouped by grocery category
 - **Deletion model** → soft delete with 30-day trash
-- **Privacy** → account deletion + full data export (JSON/files)
+- **Privacy** → account deletion + full data export (JSONL)
 
 ## Task Management
 
