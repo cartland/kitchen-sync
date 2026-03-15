@@ -16,3 +16,5 @@ ADRs capture significant engineering decisions along with their context and cons
 | [ADR-006](adr-006-dependency-injection.md) | Dependency Injection: kotlin-inject | Accepted |
 | [ADR-007](adr-007-error-handling.md) | Error Handling: Result\<D, E\> Sealed Type | Accepted |
 | [ADR-008](adr-008-ci-github-actions.md) | CI: GitHub Actions | Accepted |
+| [ADR-009](adr-009-ai-integration.md) | AI Integration Architecture | Accepted |
+| [ADR-010](adr-010-ai-action-model.md) | AI Action Model: Prepare / Review / Execute | Accepted |

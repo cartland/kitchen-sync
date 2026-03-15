@@ -61,9 +61,15 @@ Full product requirements are documented in `docs/requirements/`. Always consult
 
 Architecture decisions are documented as ADRs in `docs/architecture/`.
 
+## AI Integration
+
+- **Architecture**: AiEngine interface in domain, implementations in `:ai` module (Gemini cloud + on-device ML Kit). See ADR-009.
+- **Action model**: Prepare / Review / Execute — AI proposes actions, user reviews, execution via existing UseCases. See ADR-010.
+- **Tool pattern**: Domain capabilities exposed as read-only tools via ToolHandler interface. AI never writes data directly.
+- **Reference implementation**: Battery Butler at `/tmp/battery-butler/` — adapted patterns (AiEngine, ToolHandler, tool definitions)
+
 ## Open Questions
 
-- AI-driven UX for complex meal planning workflows (to be discussed)
 - Calendar integration details depend on Google Calendar API capabilities
 
 ## Resolved Questions (2026-03-15)
@@ -102,6 +108,10 @@ Architecture decisions are documented as ADRs in `docs/architecture/`.
 - **Shopping export format** → grouped by grocery category
 - **Deletion model** → soft delete with 30-day trash
 - **Privacy** → account deletion + full data export (JSONL)
+- **AI integration** → Gemini (cloud) + on-device ML Kit; AiEngine interface in domain (ADR-009)
+- **AI action model** → Prepare / Review / Execute; all AI outputs require user review (ADR-010)
+- **AI recipe formatting** → paste freeform text → AI reformats → user reviews → saves
+- **AI meal planning** → AI proposes weekly plan from recipes/history/ratings → user reviews → applies
 
 ## Task Management
 

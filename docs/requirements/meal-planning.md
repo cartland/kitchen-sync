@@ -12,6 +12,7 @@ Flexible weekly meal scheduling with recipe selection and ratings.
 - One-time overrides are always possible (e.g., skip Tuesday this week)
 - Select recipes for upcoming meals
 - Any household member can publish a meal plan (no approval required)
+- AI-assisted meal plan generation: AI queries recipes, history, ratings, and variety data → proposes a weekly plan → user reviews/edits → approves to apply (see `ai-features.md`)
 - Per-person ratings: like vs. don't like, with household aggregate view
 
 ## Proposed
@@ -23,5 +24,3 @@ Flexible weekly meal scheduling with recipe selection and ratings.
 ## Not Doing
 
 ## Open Questions
-
-- AI-driven UX for complex meal planning workflows (to be discussed)

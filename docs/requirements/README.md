@@ -13,6 +13,7 @@ A meal planning app for households — from recipe selection to grocery shopping
 | Calendar Integration | Google Calendar events for meal plans | [calendar.md](calendar.md) |
 | Meal Plan History | Snapshots, variety tracking, active suggestions | [history.md](history.md) |
 | Offline & Sync | Full offline functionality, cloud sync, conflict handling | [sync.md](sync.md) |
+| AI Features | LLM-powered workflows with Prepare / Review / Execute model | [ai-features.md](ai-features.md) |
 
 ## Cross-cutting Decisions
 
