@@ -8,7 +8,7 @@ Structured recipe management with versioning and snapshots.
 - Template sections: Title, Ingredients, Preparation, Cooking
 - Serving size described in freeform text (not enforced, no automatic scaling)
 - Ingredient units: typed sealed class with common metric and imperial units, plus a freeform text variant (freeform does not support math/scaling)
-- Manual entry only
+- Manual entry with AI-assisted formatting: paste freeform text → AI reformats into restricted Markdown → user reviews preview → approves to save (see `ai-features.md`)
 - Any household member can edit any recipe (no per-recipe ownership)
 - Related recipes: bidirectional links between any two recipes
 - Recipes evolve over time; when used in a meal plan, the full content is snapshotted

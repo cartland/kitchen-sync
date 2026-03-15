@@ -52,3 +52,8 @@ Decisions that span multiple features or don't belong to a single feature area.
 | No push notifications | No notifications for meal plans, shopping lists, or member changes | 2026-03-15 |
 | Dark mode from day one | Support dark mode in initial release | 2026-03-15 |
 | Onboarding: add recipes → plan meals | Default unnamed household created on first launch; name required when sharing | 2026-03-15 |
+| AI integration: Gemini + on-device ML Kit | Cloud engine for quality, on-device for offline/privacy; AiEngine interface in domain (ADR-009) | 2026-03-15 |
+| AI action model: Prepare / Review / Execute | All AI outputs require user review before saving; AI never writes data directly (ADR-010) | 2026-03-15 |
+| AI tools are read-only | AI can query recipes, history, ratings via ToolHandler but has no write access | 2026-03-15 |
+| AI-assisted recipe formatting | Paste freeform text → AI reformats to restricted Markdown → user reviews → approves | 2026-03-15 |
+| AI-assisted meal plan generation | AI proposes weekly plan from recipes/history/ratings → user reviews/edits → approves | 2026-03-15 |
