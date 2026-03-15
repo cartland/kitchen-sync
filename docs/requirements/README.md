@@ -15,6 +15,7 @@ A meal planning app for households — from recipe selection to grocery shopping
 | Offline & Sync | Full offline functionality, cloud sync, conflict handling | [sync.md](sync.md) |
 | AI Features | LLM-powered workflows with Prepare / Review / Execute model | [ai-features.md](ai-features.md) |
 | User Flows & Screens | Screen inventory, core user journeys, navigation open questions | [user-flows.md](user-flows.md) |
+| Data Model | Entity definitions, fields, relationships | [data-model.md](data-model.md) |
 
 Each feature file uses this section structure:
 

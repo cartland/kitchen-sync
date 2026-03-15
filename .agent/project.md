@@ -104,7 +104,7 @@ Architecture decisions are documented as ADRs in `docs/architecture/`.
 - **Push notifications** → none
 - **Dark mode** → supported from day one
 - **Onboarding** → add recipes → plan meals; default unnamed household created automatically
-- **Recipe search** → full search + filters (name, ingredients, cook time, rating, last cooked)
+- **Recipe search** → full search + filters (name, ingredients, rating, last cooked)
 - **Calendar event detail** → recipe name as title only
 - **Pantry scope** → shared per household (one list, all members edit)
 - **Conflict resolution UI** → pick one version (mine vs theirs), no manual merge
