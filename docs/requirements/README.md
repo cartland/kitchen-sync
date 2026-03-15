@@ -26,6 +26,10 @@ Each feature file uses this section structure:
 - **Not Doing** — Explicitly rejected, with rationale.
 - **Open Questions** — Unresolved decisions that need input.
 
+## Project Plan
+
+See [PROJECT_PLAN.md](../PROJECT_PLAN.md) for the staged implementation plan — sequencing work from foundation through first milestone and beyond.
+
 ## Cross-cutting Decisions
 
 See [decisions.md](decisions.md) for decisions that span multiple features.
