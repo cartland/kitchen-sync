@@ -73,7 +73,7 @@ Build domain models, repositories, and storage — the foundation everything els
 
 ### Work Items
 
-- Domain models for MVP entities from [data-model.md](requirements/data-model.md) (User, Household, Membership, Invite Link, Recipe, RecipeRevision, Ingredient, Meal Plan Entry, Shopping List Item, Related Recipe Link)
+- Domain models for MVP entities from [data-model.md](requirements/data-model.md) (User, Household, Membership, Invite Link, Recipe, RecipeRevision, Ingredient, Meal Plan Entry, Shopping List Item)
 - `Result<D, E>` sealed type per [ADR-007](architecture/adr-007-error-handling.md)
 - Repository interfaces
 - Room entities, DAOs, migrations
@@ -132,7 +132,7 @@ Meal scheduling and basic shopping list — completes the first milestone.
 
 - Default launch tab
 - AI Suggest placement (Stage 4 or defer to Stage 8)
-- Shopping list lifecycle (resolved: computed fresh from non-archived meal plan entries)
+- Shopping list lifecycle (resolved: computed fresh from meal plan entries; archiving deferred)
 
 ### Work Items
 
@@ -168,7 +168,7 @@ These stages are deliberately vague. Expand each one when Stages 0–4 are compl
 | Default launch tab | Stage 4 | kitchen-sync-46u |
 | AI Suggest placement | Stage 4 or 8 | kitchen-sync-46u |
 | ~~Generate Shopping List trigger~~ | ~~Stage 4~~ | ~~kitchen-sync-46u~~ — **Resolved**: auto-computed on Shopping tab open |
-| ~~Shopping list lifecycle~~ | ~~Stage 4~~ | ~~kitchen-sync-46u~~ — **Resolved**: computed fresh from non-archived meal plan entries |
+| ~~Shopping list lifecycle~~ | ~~Stage 4~~ | ~~kitchen-sync-46u~~ — **Resolved**: computed fresh from meal plan entries (archiving deferred) |
 | Calendar integration surface | Stage 9 | kitchen-sync-46u |
 | Meal Plan history browsing | Stage 10 | kitchen-sync-46u |
 

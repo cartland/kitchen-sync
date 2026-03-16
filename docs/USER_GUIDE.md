@@ -79,7 +79,6 @@ Use the search bar at the top of the Recipes tab to find recipes quickly.
 The Meal Plan tab shows an infinitely scrolling timeline of days, anchored to today. Future days are below, past days are above. Each day shows a day-of-week label, date, and any meals you've planned.
 
 - Scroll up to see past meals or down to see upcoming ones
-- Each meal card shows an archive status icon: an empty circle means no ingredients archived, a half circle means some, and a full circle means all
 - Tap the **+** button on any day to add a meal
 - Tap any meal to expand it and see more options
 
@@ -98,8 +97,6 @@ Tap a meal on the timeline to expand it inline. Only one meal can be expanded at
 
 - Tap **View** to open the full recipe in Recipe Detail
 - Tap **Edit** to reveal additional actions:
-  - **Archive** — removes this meal's ingredients from the shopping list (the meal stays on the timeline with an updated status icon)
-  - **Restore** — if archived, adds ingredients back to the shopping list
   - **Date** — reschedule this meal to a different day
   - **Delete** — remove this meal from the plan entirely
 
@@ -125,13 +122,13 @@ When you delete a meal, a placeholder card appears in its slot giving you a chan
 
 ### Using the Shopping List
 
-The Shopping List tab shows all ingredients from your non-archived meal plan entries, computed fresh each time you open it. There's nothing to set up — just plan meals and your list appears.
+The Shopping List tab shows all ingredients from your meal plan entries, computed fresh each time you open it. There's nothing to set up — just plan meals and your list appears.
 
 - Check off items as you shop — checked items get a gray strikethrough and sink below unchecked items
 - Tap an item's name to copy it to your clipboard (handy for pasting into store apps)
 - Tap the meal date badge on any item to see which recipe and meal plan day it came from, then tap to jump to that day in the Meal Plan
 - Tap **+** at the bottom to add a manual item that isn't from a recipe
-- Archiving a meal in the Meal Plan removes its ingredients from this list; restoring adds them back
+- Deleting a meal from the Meal Plan removes its ingredients from this list
 
 ---
 
