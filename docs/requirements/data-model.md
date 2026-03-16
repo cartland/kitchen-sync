@@ -57,15 +57,6 @@ Sub-entity of Recipe (embedded in the ingredients list).
 | unit | string? | Nullable — empty unit allowed (e.g., "2 eggs") |
 | name | string | Ingredient name |
 
-### Related Recipe Link
-
-| Field | Type | Notes |
-|-------|------|-------|
-| recipeId1 | string | FK → Recipe |
-| recipeId2 | string | FK → Recipe |
-
-Bidirectional — order does not matter.
-
 ### RecipeRevision
 
 Immutable record of recipe content at a point in time. Every edit creates a new revision with an incremented sequence number. All revisions are kept permanently.
@@ -81,7 +72,7 @@ Immutable record of recipe content at a point in time. Every edit creates a new 
 | cooking | string | Restricted Markdown |
 | editedBy | string | FK → User |
 | editedAt | timestamp | When this revision was created |
-| basedOnRevision | int | The revision the author was viewing when editing; used for conflict detection |
+| basedOnRevision | int | The revision the author was viewing when editing; retained for post-MVP conflict detection (MVP uses LWW) |
 
 **Sync model (MVP):** Last-write-wins. The revision model and `basedOnRevision` field are retained as the target architecture for future conflict detection, but for MVP, concurrent edits are resolved by accepting the latest write. See [sync.md](sync.md) for details.
 
@@ -108,8 +99,6 @@ Immutable record of recipe content at a point in time. Every edit creates a new 
 | quantity | string | |
 | unit | string? | Nullable |
 | checked | boolean | Checkbox state |
-| archived | boolean | Archived items hidden from list view |
-| archivedTimestamp | timestamp? | Null when not archived |
 | sourceEntryId | string? | FK → Meal Plan Entry (null for manual items) |
 
 ### Entity Relationship Summary
