@@ -109,8 +109,6 @@ User ──┬── Membership ──── Household
        ├── Invite Link ───────┤
        │                      │
        └──────────────────────┼── Recipe ──── RecipeRevision ──── Ingredient (embedded)
-                              │     │
-                              │     ├── Related Recipe Link
                               │
                               Meal Plan Entry (references recipeId + revision)
                                     │
