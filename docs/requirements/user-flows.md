@@ -178,12 +178,12 @@ Not started.
 
 ### Deferred Screens
 
-- **Screen 2 (Household Switcher)** — Multi-household deferred; MVP: single household
-- **Screen 9 (Trash)** — Soft delete deferred; MVP: hard delete
-- **Screen 16 (Pantry Section)** — Pantry deferred from MVP
-- **Screen 17 (Shopping List Section)** — Merged into Shopping Tab for MVP (separate section view deferred)
-- **Screen 18 (Conflict Banner)** — Conflict resolution UI deferred; MVP: LWW
-- **Screen 19 (Conflict Resolution)** — Conflict resolution UI deferred; MVP: LWW
+- **Household Switcher** — Multi-household deferred; MVP: single household
+- **Trash** — Soft delete deferred; MVP: hard delete
+- **Pantry Section** — Pantry deferred from MVP
+- **Shopping List Section** — Merged into Shopping Tab for MVP (separate section view deferred)
+- **Conflict Banner** — Conflict resolution UI deferred; MVP: LWW
+- **Conflict Resolution** — Conflict resolution UI deferred; MVP: LWW
 
 ### Deferred Screen Features
 
@@ -209,12 +209,6 @@ Not started.
 - **Related Recipes links**: Bidirectional links between recipes on Recipe Detail — deferred from initial release
 - **AI Recipe Picker suggestions**: AI-powered suggestions in Recipe Picker — deferred to AI stage
 - **Invite Link Display screen**: Currently inline in Manage Household; may become its own screen if the flow grows more complex
-- **Household Switcher (Screen)**: Multiple households per user with active household switcher — deferred; single household per user for MVP
-- **Trash (Screen + Flow)**: Soft delete with 30-day trash, trash browsing, restore deleted recipes — deferred; hard delete only for MVP
-- **Pantry (Screen + Flow)**: Pantry section in Shopping Tab, pantry staple management, auto-exclusion from shopping list — deferred; shopping list shows all ingredients for MVP
-- **Conflict Resolution UI (Screens + Flow)**: Conflict banner on Recipe Detail, side-by-side "mine vs theirs" resolution — deferred; last-write-wins for MVP (revision model kept as target architecture)
-- **Ratings (Flow)**: 5-star per-user ratings on recipes, average + count display — deferred entirely
-- **Multi-Household**: Multiple households per user, household switcher in profile menu — deferred; single household per user for MVP
 
 ## Not Doing
 
@@ -224,7 +218,7 @@ Not started.
 - **AI Proposal Review**: ADR-010 Prepare/Review/Execute flow needs a review screen for AI-generated content. Needed for Stage 8.
 - **Data Export Flow**: sync.md mentions JSONL export; no flow defined. Needed for Stage 6+.
 - ~~**Invite Link Display**: identity.md describes invite generation; no screen for showing/sharing the link. Needed for Stage 7.~~ → Handled inline in Manage Household.
-- **History Browser**: history.md references history browsing; no screen defined. Needed for Stage 10.
+- **History Browser**: history.md defers variety tracking, active suggestions, and pattern discovery; no screen defined. Needed for Stage 10.
 
 ## Open Questions
 
