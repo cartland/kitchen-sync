@@ -123,16 +123,14 @@ The shopping list is **computed fresh from the meal plan** each time the Shoppin
 
 #### 5. Manage Planned Meal
 
-> User goal: View, reschedule, archive, or delete a planned meal.
+> User goal: View, reschedule, or delete a planned meal.
 
 1. **Meal Plan Timeline** — Tap a meal
 2. **Meal Item** expands inline (accordion, one at a time) showing: View, Edit
 3. **View** → opens **Recipe Detail** full-screen
-4. **Edit** → reveals actions: Archive (or Restore if already archived), Date, Delete
-5. **Archive** → meal's ingredients removed from shopping list; archive icon updates (empty → half/full circle)
-6. **Restore** → meal's ingredients re-added to shopping list; checked items for affected ingredients are unchecked
-7. **Date** → opens **Date Picker** to reschedule
-8. **Delete** → meal deleted, **Undo Placeholder** appears in its slot
+4. **Edit** → reveals actions: Date, Delete
+5. **Date** → opens **Date Picker** to reschedule
+6. **Delete** → meal deleted, **Undo Placeholder** appears in its slot
 
 #### 6. AI-Assisted Meal Planning
 
@@ -179,6 +177,35 @@ Not started.
 ## Proposed
 
 ## Deferred
+
+### Deferred Screens
+
+- **Screen 2 (Household Switcher)** — Multi-household deferred; MVP: single household
+- **Screen 9 (Trash)** — Soft delete deferred; MVP: hard delete
+- **Screen 16 (Pantry Section)** — Pantry deferred from MVP
+- **Screen 17 (Shopping List Section)** — Merged into Shopping Tab for MVP (separate section view deferred)
+- **Screen 18 (Conflict Banner)** — Conflict resolution UI deferred; MVP: LWW
+- **Screen 19 (Conflict Resolution)** — Conflict resolution UI deferred; MVP: LWW
+
+### Deferred Screen Features
+
+- **Screen 3 (Manage Household)**: Revoke link (deferred), Change Role action (MVP: Owner + Member only)
+- **Screen 4 (Member Detail)**: Change Role option (deferred)
+- **Screen 5 (Settings)**: Data export (JSONL) and account deletion — deferred from MVP
+- **Screen 7 (Recipe Detail)**: 5-star rating (avg + count), conflict banner — deferred from MVP
+- **Screen 10 (Meal Plan Timeline)**: Archive status icons on meal cards — deferred from MVP
+- **Screen 11 (Meal Item)**: Archive/Restore action — deferred from MVP
+
+### Deferred Flows
+
+- **Manage Pantry** — Configure staple items excluded from shopping lists; pantry deferred from MVP
+- **Switch Households** — View a different household's data; multi-household deferred from MVP
+- **Resolve Sync Conflict** — Side-by-side "mine vs theirs" picker; conflict resolution UI deferred (MVP: LWW)
+- **Rate a Recipe** — Record 1–5 star rating; ratings deferred from MVP
+- **Restore Deleted Recipe** — Recover from trash; soft delete deferred (MVP: hard delete)
+- **Meal Plan Entry archiving** — Archive meals to remove ingredients from shopping list; no data model field exists yet; deferred from MVP
+
+### Other Deferred Items
 
 - **Recipe List filters**: Filter by rating, last cooked — deferred from initial release
 - **Related Recipes links**: Bidirectional links between recipes on Recipe Detail — deferred from initial release

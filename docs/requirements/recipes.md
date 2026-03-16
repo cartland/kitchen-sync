@@ -9,7 +9,6 @@ Structured recipe management with revision history.
 - Ingredient units: typed sealed class with common metric and imperial units, plus a freeform text variant (freeform does not support math/scaling)
 - Manual entry with AI-assisted formatting: paste freeform text → AI reformats into restricted Markdown → user reviews preview → approves to save (see `ai-features.md`)
 - Any household member can edit any recipe (no per-recipe ownership)
-- Related recipes: bidirectional links between any two recipes
 - Recipes use a revision model: every edit creates a new immutable RecipeRevision with a monotonically increasing sequence number
 - Meal plans reference a specific revision — no separate snapshot needed
 - Diff view available on demand: compare any two revisions of a recipe
@@ -24,6 +23,10 @@ Not started.
 ## Proposed
 
 ## Deferred
+
+- Related recipes: bidirectional links between any two recipes — *Reason: deferred from MVP to reduce scope*
+- Conflict detection: edits include `basedOnRevision`; if it doesn't match `currentRevision`, the user resolves the conflict — *Reason: MVP uses last-write-wins; revision model kept as architecture*
+- Filter by household rating, last cooked date — *Reason: ratings deferred from MVP*
 
 ## Not Doing
 

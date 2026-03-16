@@ -104,7 +104,7 @@ Architecture decisions are documented as ADRs in `docs/architecture/`.
 - **Push notifications** → none
 - **Dark mode** → supported from day one
 - **Onboarding** → add recipes → plan meals; default unnamed household created automatically
-- **Recipe search** → full search + filters (name, ingredients, rating, last cooked)
+- **Recipe search** → full search + filters (name, ingredients, rating, last cooked) (MVP: name + ingredients only)
 - **Calendar event detail** → recipe name as title only
 - **Pantry scope** → deferred entirely from MVP. Target: shared per household (one list, all members edit)
 - **Recipe revision model** → replaces snapshots; every edit creates immutable RecipeRevision with sequence number; meal plans reference recipeId + revision; all revisions kept permanently; conflict detection via basedOnRevision
