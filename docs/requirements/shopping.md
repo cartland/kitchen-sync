@@ -1,6 +1,6 @@
 # Shopping List
 
-Consolidated grocery lists with smart merging, pantry management, and checkout flow.
+Consolidated grocery lists with checkout flow.
 
 ## Goal
 
@@ -10,16 +10,12 @@ Consolidated grocery lists with smart merging, pantry management, and checkout f
 - Manual items: users can add items to the shopping list that aren't from recipes
 - Each line cites its source recipe (if generated from a recipe) so you know where ingredients will be used
 - Built-in database of common ingredients maps to grocery categories; category assignment is optional (uncategorized items are fine)
-- Persistent pantry: maintain a list of staples (rice, salt, oil, etc.) that are auto-excluded from shopping lists
-- Confirm remaining items you have at home
 - Checkable list: tap items to check them off while shopping, state persists during the trip
 - Checked items gray out in place (strikethrough); can be unchecked during shopping
 - Archive checked items: removes them from list view (archived boolean + archived timestamp)
 - Copy export of remaining (unchecked) items grouped by grocery category (produce, dairy, meat, etc.)
-- Shared household pantry: one staples list per household, all members can view and edit
-- Two-section UI: collapsible Pantry header and Shopping List header with distinct background colors
 - Shopping list items show meal date badge linking to source recipe and meal plan day
-- Pantry items have "+" to manually add to shopping list
+- Tapping an item copies its name to the clipboard for pasting into external shopping apps
 
 ## Status
 
@@ -28,6 +24,9 @@ Not started.
 ## Proposed
 
 ## Deferred
+
+- **Pantry management**: Persistent list of staples (rice, salt, oil, etc.) auto-excluded from shopping lists; shared per household; two-section UI (Pantry + Shopping List) — deferred; all ingredients appear in shopping list for MVP
+- **Pantry item promotion**: Tap pantry item to add to shopping list as manual entry — deferred along with pantry
 
 ## Not Doing
 

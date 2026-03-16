@@ -4,6 +4,8 @@ A staged plan for building Kitchen Sync. Earlier stages are detailed; later stag
 
 **Key principle:** each stage's detailed planning happens during or just before that stage, not all upfront.
 
+**MVP scope:** Recipes → Meal Plan → Shopping List. Single household, single owner + members, hard delete, last-write-wins sync. See [user-flows.md](requirements/user-flows.md) for the 15-screen, 9-flow MVP scope.
+
 ## Dependency Map
 
 ```
@@ -71,13 +73,12 @@ Build domain models, repositories, and storage — the foundation everything els
 
 ### Work Items
 
-- Domain models for all 12 entities from [data-model.md](requirements/data-model.md)
+- Domain models for MVP entities from [data-model.md](requirements/data-model.md) (User, Household, Membership, Invite Link, Recipe, RecipeRevision, Ingredient, Meal Plan Entry, Shopping List Item, Related Recipe Link)
 - `Result<D, E>` sealed type per [ADR-007](architecture/adr-007-error-handling.md)
 - Repository interfaces
 - Room entities, DAOs, migrations
 - Firestore data sources and security rules
-- Repository implementations (offline-first: Room → Firestore sync)
-- Basic conflict detection skeleton
+- Repository implementations (offline-first: Room → Firestore sync with last-write-wins)
 
 ### Exit Criteria
 
@@ -90,10 +91,10 @@ Authentication and the household shell — needs only domain models from Stage 2
 ### Work Items
 
 - Google sign-in (Firebase Auth) on Android and iOS
-- Auto-create default household on first sign-in
+- Auto-create default household on first sign-in (single household per user for MVP)
 - Active household state persistence
 - Navigation shell with 3 bottom tabs (placeholder content)
-- Profile menu dropdown
+- Profile menu dropdown (Manage Household, Settings, Sign Out)
 
 ### Exit Criteria
 
@@ -113,8 +114,8 @@ Full recipe CRUD — the first user-visible feature.
 
 ### Work Items
 
-- Use cases: CRUD, search, rate, soft delete/restore, related recipes
-- UI (Android + iOS in parallel): Recipe List, Detail, Editor, Trash
+- Use cases: CRUD, search, hard delete
+- UI (Android + iOS in parallel): Recipe List, Detail, Editor
 - Search: fuzzy across all fields, contextual metadata in results
 - See [recipes.md](requirements/recipes.md) and [user-flows.md](requirements/user-flows.md) for full requirements
 
@@ -131,14 +132,13 @@ Meal scheduling and basic shopping list — completes the first milestone.
 
 - Default launch tab
 - AI Suggest placement (Stage 4 or defer to Stage 8)
-- Generate Shopping List trigger UX
-- Shopping list lifecycle: what happens to the old list when a new one is generated? (moved from Stage 5 blocker — partially blocks Stage 4)
+- Shopping list lifecycle (resolved: computed fresh from non-archived meal plan entries)
 
 ### Work Items
 
 - Use cases: add/remove/reschedule meals, reference recipe revisions, generate shopping list
 - UI: infinite scrolling timeline, recipe picker bottom sheet, meal item accordion
-- Basic shopping list generation (ingredient consolidation, pantry exclusion)
+- Shopping list generation (ingredient aggregation from meal plan, no pantry exclusion for MVP)
 - See [meal-planning.md](requirements/meal-planning.md) and [shopping.md](requirements/shopping.md)
 
 ### Exit Criteria
@@ -152,12 +152,12 @@ These stages are deliberately vague. Expand each one when Stages 0–4 are compl
 
 | Stage | Area | Expand When | Sub-Discovery Notes |
 |-------|------|-------------|---------------------|
-| 5 | Shopping (full UI, archive, export) | Stage 4 complete | Data export flow screen needed |
-| 6 | Sync & conflict resolution (hardening, conflict UI) | Stage 4 complete | |
-| 7 | Household management (invites, roles, member detail, settings) | Stage 4 complete | Invite link display screen needed |
+| 5 | Shopping (full UI, archive, export, pantry) | Stage 4 complete | Data export flow screen needed; pantry feature deferred from MVP |
+| 6 | Sync & conflict resolution (hardening, conflict UI) | Stage 4 complete | Conflict detection + resolution UI deferred from MVP |
+| 7 | Household management (invites with expiry, roles, member detail, settings, multi-household) | Stage 4 complete | Admin/member roles, invite expiry/revocation, household switcher deferred from MVP |
 | 8 | AI features (recipe formatting, meal plan generation, AiEngine) | Stage 4 complete | AI proposal review UI needed; key ADRs: [ADR-009](architecture/adr-009-ai-integration.md), [ADR-010](architecture/adr-010-ai-action-model.md) |
 | 9 | Calendar integration (Google Calendar API) | Stage 4 complete | |
-| 10 | History & variety tracking | Stage 4 complete | History browsing screen needed |
+| 10 | History, ratings, trash & variety tracking | Stage 4 complete | History browsing screen needed; ratings + soft delete/trash deferred from MVP |
 
 ## Open Questions → Stage Blockers
 
@@ -167,8 +167,8 @@ These stages are deliberately vague. Expand each one when Stages 0–4 are compl
 | Version field for non-recipe entities | Stage 2 | [data-model.md](requirements/data-model.md) — recipes use revision model; other entities TBD |
 | Default launch tab | Stage 4 | kitchen-sync-46u |
 | AI Suggest placement | Stage 4 or 8 | kitchen-sync-46u |
-| Generate Shopping List trigger | Stage 4 | kitchen-sync-46u |
-| Shopping list lifecycle | Stage 4 (partially) | kitchen-sync-46u — must resolve "what happens to old list" before shipping generation |
+| ~~Generate Shopping List trigger~~ | ~~Stage 4~~ | ~~kitchen-sync-46u~~ — **Resolved**: auto-computed on Shopping tab open |
+| ~~Shopping list lifecycle~~ | ~~Stage 4~~ | ~~kitchen-sync-46u~~ — **Resolved**: computed fresh from non-archived meal plan entries |
 | Calendar integration surface | Stage 9 | kitchen-sync-46u |
 | Meal Plan history browsing | Stage 10 | kitchen-sync-46u |
 

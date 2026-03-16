@@ -43,7 +43,7 @@ Dependency rule: inner layers never depend on outer layers.
 
 ### Sync Model
 
-Conflict detection with user resolution. Each entity carries a version. On sync, if the base version differs from the server's current version, a conflict is detected and surfaced to the user. No silent last-writer-wins.
+**MVP: Last-write-wins.** Concurrent edits are resolved by accepting the latest write. The revision model (`basedOnRevision` on RecipeRevision) is retained as the target architecture for future conflict detection and resolution UI, but these are deferred from MVP.
 
 ### Dependency Injection
 
@@ -80,10 +80,10 @@ Architecture decisions are documented as ADRs in `docs/architecture/`.
 
 ## Resolved Questions (2026-03-15)
 
-- **Household model** → **REVISED**: multiple households per user; active household switcher; default unnamed household on first launch; name required when sharing
-- **Roles** → Admin and Member per household; Admins invite/remove/delete; at least one Admin required; auto-promote on last Admin departure; orphaned households deleted
-- **Invite links** → multi-use, 1-day expiry, revocable by Admins
-- **Leaving household** → data stays, ratings removed
+- **Household model** → **MVP**: single household per user; default unnamed household on first launch; name required when sharing. Multi-household deferred.
+- **Roles** → **MVP**: single Owner + Members; Owner generates invite links. Full Admin/Member role system deferred.
+- **Invite links** → **MVP**: simple shareable links (no expiry or revocation). Expiry/revocation deferred.
+- **Leaving household** → data stays
 - **Recipe Markdown template** → restricted Markdown (headers, bullets, bold); sections: Title, Intro, Ingredients, Preparation, Cooking
 - **Recipe ownership** → any household member can edit any recipe
 - **Ingredient units** → typed sealed class (metric + imperial) plus freeform text variant (no math on freeform)
@@ -99,21 +99,21 @@ Architecture decisions are documented as ADRs in `docs/architecture/`.
 - **Grocery categories** → built-in DB of common ingredients; optional (uncategorized OK)
 - **Real-time sync** → yes, via Firestore listeners
 - **Conflict granularity** → per-field
-- **Trash visibility** → all household members can see and restore
+- **Trash visibility** → deferred; hard delete only for MVP. Target: all household members can see and restore
 - **Data export** → JSONL format
 - **Push notifications** → none
 - **Dark mode** → supported from day one
 - **Onboarding** → add recipes → plan meals; default unnamed household created automatically
 - **Recipe search** → full search + filters (name, ingredients, rating, last cooked)
 - **Calendar event detail** → recipe name as title only
-- **Pantry scope** → shared per household (one list, all members edit)
+- **Pantry scope** → deferred entirely from MVP. Target: shared per household (one list, all members edit)
 - **Recipe revision model** → replaces snapshots; every edit creates immutable RecipeRevision with sequence number; meal plans reference recipeId + revision; all revisions kept permanently; conflict detection via basedOnRevision
-- **Conflict resolution UI** → pick one version (mine vs theirs), no manual merge
+- **Conflict resolution UI** → deferred; last-write-wins for MVP. Target: pick one version (mine vs theirs), no manual merge
 - **Testing strategy** → full pyramid (unit + integration + E2E)
 - **Scale target** → small household (~2-6 members, ~200 recipes)
 - **Shopping checkout UX** → checked items gray out in place (strikethrough, can uncheck)
 - **Shopping export format** → grouped by grocery category
-- **Deletion model** → soft delete with 30-day trash
+- **Deletion model** → **MVP**: hard delete only. Target: soft delete with 30-day trash
 - **Privacy** → account deletion + full data export (JSONL)
 - **AI integration** → Gemini (cloud) + on-device ML Kit; AiEngine interface in domain (ADR-009)
 - **AI action model** → Prepare / Review / Execute; all AI outputs require user review (ADR-010)

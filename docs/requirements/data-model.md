@@ -26,7 +26,7 @@ Entity definitions for Kitchen Sync. All entities include `createdTimestamp` and
 |-------|------|-------|
 | userId | string | FK → User |
 | householdId | string | FK → Household |
-| role | enum | Admin, Member |
+| role | enum | Owner, Member |
 
 ### Invite Link
 
@@ -34,9 +34,7 @@ Entity definitions for Kitchen Sync. All entities include `createdTimestamp` and
 |-------|------|-------|
 | token | string | Unique shareable token |
 | householdId | string | FK → Household |
-| createdBy | string | FK → User (Admin who generated) |
-| expiresTimestamp | timestamp | 1-day expiry from creation |
-| revoked | boolean | Admins can revoke before expiry |
+| createdBy | string | FK → User (owner who generated) |
 
 ### Recipe
 
@@ -46,8 +44,6 @@ Entity definitions for Kitchen Sync. All entities include `createdTimestamp` and
 | householdId | string | FK → Household |
 | currentRevision | int | Sequence number of the latest revision |
 | createdBy | string | FK → User |
-| deleted | boolean | Soft delete flag |
-| deletedTimestamp | timestamp | Null when not deleted; 30-day retention |
 
 User-visible content (title, intro, ingredients, preparation, cooking) lives in RecipeRevision.
 
@@ -87,7 +83,7 @@ Immutable record of recipe content at a point in time. Every edit creates a new 
 | editedAt | timestamp | When this revision was created |
 | basedOnRevision | int | The revision the author was viewing when editing; used for conflict detection |
 
-**Conflict detection:** When submitting an edit, the client sends `basedOnRevision`. If it matches the recipe's `currentRevision`, the server writes a new revision. If not, a local conflict record is created for the user to resolve (pick mine vs theirs).
+**Sync model (MVP):** Last-write-wins. The revision model and `basedOnRevision` field are retained as the target architecture for future conflict detection, but for MVP, concurrent edits are resolved by accepting the latest write. See [sync.md](sync.md) for details.
 
 **Snapshots are just revision pointers.** Meal plan entries reference a specific `recipeId` + `revision` — no separate snapshot entity needed.
 
@@ -101,17 +97,6 @@ Immutable record of recipe content at a point in time. Every edit creates a new 
 | displayOrder | int | Order within the day (0-indexed) |
 | recipeId | string | FK → Recipe |
 | revision | int | FK → RecipeRevision (the revision at time of planning) |
-
-### Rating
-
-No `modifiedTimestamp` — ratings are replaced, not edited.
-
-| Field | Type | Notes |
-|-------|------|-------|
-| userId | string | FK → User |
-| recipeId | string | FK → Recipe |
-| stars | int | 1–5 |
-| timestamp | timestamp | When the rating was given/updated |
 
 ### Shopping List Item
 
@@ -127,28 +112,20 @@ No `modifiedTimestamp` — ratings are replaced, not edited.
 | archivedTimestamp | timestamp? | Null when not archived |
 | sourceEntryId | string? | FK → Meal Plan Entry (null for manual items) |
 
-### Pantry Item
-
-| Field | Type | Notes |
-|-------|------|-------|
-| itemId | string | |
-| householdId | string | FK → Household |
-| name | string | Staple ingredient name |
-
 ### Entity Relationship Summary
 
 ```
 User ──┬── Membership ──── Household
        │                      │
-       ├── Rating ────────────┼── Recipe ──── RecipeRevision ──── Ingredient (embedded)
-       │                      │     │
-       └── Invite Link ───────┘     ├── Related Recipe Link
-                                    │
+       ├── Invite Link ───────┤
+       │                      │
+       └──────────────────────┼── Recipe ──── RecipeRevision ──── Ingredient (embedded)
+                              │     │
+                              │     ├── Related Recipe Link
+                              │
                               Meal Plan Entry (references recipeId + revision)
                                     │
                               Shopping List Item
-
-                              Pantry Item ──── Household
 ```
 
 ## Status
@@ -158,6 +135,11 @@ Not started.
 ## Proposed
 
 ## Deferred
+
+- **Rating entity**: Per-user 5-star ratings on recipes (userId, recipeId, stars, timestamp) — deferred; not needed for MVP
+- **Pantry Item entity**: Household-level staple ingredients for shopping list exclusion (itemId, householdId, name) — deferred; not needed for MVP
+- **Soft delete fields**: `deleted` (boolean) and `deletedTimestamp` on Recipe — deferred; hard delete only for MVP
+- **Invite link expiry/revocation**: `expiresTimestamp` and `revoked` fields on Invite Link — deferred; simple non-expiring links for MVP
 
 ## Not Doing
 
