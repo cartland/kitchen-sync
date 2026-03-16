@@ -54,11 +54,11 @@ Decisions that span multiple features or don't belong to a single feature area.
 | Onboarding: add recipes → plan meals | Default unnamed household created on first launch; name required when sharing | 2026-03-15 |
 | AI integration: Gemini + on-device ML Kit | Cloud engine for quality, on-device for offline/privacy; AiEngine interface in domain (ADR-009) | 2026-03-15 |
 | AI action model: Prepare / Review / Execute | All AI outputs require user review before saving; AI never writes data directly (ADR-010) | 2026-03-15 |
-| AI tools are read-only | AI can query recipes, history, ratings via ToolHandler but has no write access | 2026-03-15 |
+| AI tools are read-only | AI can query recipes, history, ratings (ratings deferred from MVP) via ToolHandler but has no write access | 2026-03-15 |
 | AI-assisted recipe formatting | Paste freeform text → AI reformats to restricted Markdown → user reviews → approves | 2026-03-15 |
-| AI-assisted meal plan generation | AI proposes weekly plan from recipes/history/ratings → user reviews/edits → approves | 2026-03-15 |
+| AI-assisted meal plan generation | AI proposes weekly plan from recipes/history/ratings (ratings deferred from MVP) → user reviews/edits → approves | 2026-03-15 |
 | Recipe revision model replaces snapshots | Every edit creates an immutable RecipeRevision with sequence number; meal plans reference recipeId + revision; no separate snapshot entity; all revisions kept permanently | 2026-03-15 |
-| Recipe conflict detection via basedOnRevision | Client sends basedOnRevision when editing; server accepts if it matches currentRevision, otherwise app creates local conflict for user resolution | 2026-03-15 |
+| Recipe conflict detection via basedOnRevision | Client sends basedOnRevision when editing; server accepts if it matches currentRevision, otherwise last-write-wins for MVP (conflict resolution UI deferred) | 2026-03-15 |
 | Staged project plan with incremental planning | Plan additional planning — don't detail later stages upfront; expand each stage when earlier stages complete | 2026-03-15 |
 | Documentation self-improvement obligation | Agents must fix doc issues on sight or leave a NOTE block; observations must not be lost between sessions | 2026-03-15 |
 | Goals vs Status in requirements files | Renamed "Committed" to "Goal" (aspiration) and added "Status" section (reality) to every requirements file; makes it clear whether missing behavior is a bug or not-yet-implemented | 2026-03-15 |
