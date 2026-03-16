@@ -33,8 +33,8 @@ Map of the app: every screen, how they connect, and the key user journeys. This 
 
 | # | Screen | Purpose | Key Elements | Navigates To |
 |---|--------|---------|--------------|--------------|
-| 8 | Meal Plan Timeline | Infinite scrolling timeline anchored to today (future below, past above); day dividers with day-of-week + date; "+" button per day; meals listed under their day | Day dividers (day-of-week + date), "+" button per day, meal cards with archive status icon (empty circle = none archived, half circle = some archived, full circle = all archived), today anchor | → Recipe Picker (tap "+"); → Meal Item expand (tap meal) |
-| 9 | Meal Item (expanded) | Inline accordion (one at a time) on a meal in the timeline | Default: View button, Edit button. Edit mode: Archive (or Restore if archived), Date, Delete | → Recipe Detail (View); → Date Picker (Date); → Delete Undo Placeholder (Delete) |
+| 8 | Meal Plan Timeline | Infinite scrolling timeline anchored to today (future below, past above); day dividers with day-of-week + date; "+" button per day; meals listed under their day | Day dividers (day-of-week + date), "+" button per day, meal cards, today anchor | → Recipe Picker (tap "+"); → Meal Item expand (tap meal) |
+| 9 | Meal Item (expanded) | Inline accordion (one at a time) on a meal in the timeline | Default: View button, Edit button. Edit mode: Date, Delete | → Recipe Detail (View); → Date Picker (Date); → Delete Undo Placeholder (Delete) |
 | 10 | Recipe Picker | Bottom sheet with search bar on top; random recipe suggestion | Bottom sheet, search bar, recipe list, random recipe suggestion | → Timeline with new meal (select recipe); → dismiss (swipe down / tap outside) |
 | 11 | Date Picker | Date picker opened from expanded meal item's "Date" option | Calendar/date selector, confirm/cancel | → Timeline (confirm, meal rescheduled); → Meal Item (cancel) |
 | 12 | Delete Undo Placeholder | Placeholder in deleted meal's slot with Undo and X (dismiss) buttons | Placeholder card in deleted meal's slot, Undo button, X (dismiss) button | → Timeline restored (Undo); → Timeline without meal (dismiss) |
@@ -63,11 +63,9 @@ The household has a single owner and members:
 
 The shopping list is **computed fresh from the meal plan** each time the Shopping tab is opened:
 
-1. **Ingredients from all non-archived meal plan entries** are aggregated into the shopping list
-2. **Archiving a meal plan entry** removes its ingredients from the shopping list calculation; any affected checked items are unchecked (since totals changed)
-3. **Restoring an archived meal plan entry** (via Edit → Restore on the meal item) re-adds its ingredients to the shopping list
-4. **Archiving is per meal plan entry** — adding the same recipe to a new day creates a fresh set of ingredients
-5. **Checked items** sink below unchecked items; order within each group is determined by the order items were added (most recently checked item on top of checked group)
+1. **Ingredients from all meal plan entries** are aggregated into the shopping list
+2. **Deleting a meal plan entry** removes its ingredients from the shopping list
+3. **Checked items** sink below unchecked items; order within each group is determined by the order items were added (most recently checked item on top of checked group)
 6. **Tapping an item** copies its name to the clipboard for pasting into external shopping apps
 
 ### Empty States
@@ -145,7 +143,7 @@ The shopping list is **computed fresh from the meal plan** each time the Shoppin
 
 > User goal: Check off items while shopping.
 
-1. **Shopping Tab** — Shopping list is computed fresh from non-archived meal plan entries
+1. **Shopping Tab** — Shopping list is computed fresh from meal plan entries
 2. Check off items as purchased (gray strikethrough; checked items sink below unchecked)
 3. Tap an item name to copy it to clipboard for pasting into external shopping apps (e.g., Safeway)
 4. Tap meal date badge on any item → expands recipe name + meal plan dates → tap to jump to that day in Meal Plan
@@ -189,12 +187,12 @@ Not started.
 
 ### Deferred Screen Features
 
-- **Screen 3 (Manage Household)**: Revoke link (deferred), Change Role action (MVP: Owner + Member only)
-- **Screen 4 (Member Detail)**: Change Role option (deferred)
-- **Screen 5 (Settings)**: Data export (JSONL) and account deletion — deferred from MVP
-- **Screen 7 (Recipe Detail)**: 5-star rating (avg + count), conflict banner — deferred from MVP
-- **Screen 10 (Meal Plan Timeline)**: Archive status icons on meal cards — deferred from MVP
-- **Screen 11 (Meal Item)**: Archive/Restore action — deferred from MVP
+- **Screen 2 (Manage Household)**: Revoke link (deferred), Change Role action (MVP: Owner + Member only)
+- **Screen 3 (Member Detail)**: Change Role option (deferred)
+- **Screen 4 (Settings)**: Data export (JSONL) and account deletion — deferred from MVP
+- **Screen 6 (Recipe Detail)**: 5-star rating (avg + count), conflict banner — deferred from MVP
+- **Screen 8 (Meal Plan Timeline)**: Archive status icons on meal cards — deferred from MVP
+- **Screen 9 (Meal Item)**: Archive/Restore action — deferred from MVP
 
 ### Deferred Flows
 
@@ -237,5 +235,5 @@ Not started.
 
 ## Resolved Questions
 
-- **Shopping list lifecycle**: shopping list is computed fresh from non-archived meal plan entries. Archiving a meal plan entry removes its ingredients from the list.
+- **Shopping list lifecycle**: shopping list is computed fresh from meal plan entries. Deleting a meal plan entry removes its ingredients from the list (MVP: hard delete; archiving deferred).
 - **Generate Shopping List trigger**: shopping list is auto-computed when the Shopping tab is opened; no explicit trigger needed.
