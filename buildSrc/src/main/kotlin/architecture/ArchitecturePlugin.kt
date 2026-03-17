@@ -1,0 +1,10 @@
+package architecture
+
+import org.gradle.api.Plugin
+import org.gradle.api.Project
+
+class ArchitecturePlugin : Plugin<Project> {
+    override fun apply(project: Project) {
+        project.tasks.register("checkArchitecture", ArchitectureCheckTask::class.java)
+    }
+}
