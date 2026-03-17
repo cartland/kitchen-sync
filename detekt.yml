@@ -109,7 +109,7 @@ naming:
     excludeClassPattern: '$^'
   InvalidPackageDeclaration:
     active: true
-    rootPackage: 'com.cartland.kitchensync'
+    rootPackage: 'com.chriscartland.kitchensync'
     requireRootInDeclaration: false
   LambdaParameterNaming:
     active: true

@@ -6,7 +6,7 @@ plugins {
 
 kotlin {
     androidLibrary {
-        namespace = "com.cartland.kitchensync.usecase"
+        namespace = "com.chriscartland.kitchensync.usecase"
         compileSdk =
             libs.versions.android.compileSdk
                 .get()

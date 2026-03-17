@@ -63,14 +63,14 @@ kotlin {
 }
 
 android {
-    namespace = "com.cartland.kitchensync.composeapp"
+    namespace = "com.chriscartland.kitchensync.composeapp"
     compileSdk =
         libs.versions.android.compileSdk
             .get()
             .toInt()
 
     defaultConfig {
-        applicationId = "com.cartland.kitchensync"
+        applicationId = "com.chriscartland.kitchensync"
         minSdk =
             libs.versions.android.minSdk
                 .get()
@@ -98,11 +98,11 @@ android {
 
 compose.desktop {
     application {
-        mainClass = "com.cartland.kitchensync.composeapp.MainKt"
+        mainClass = "com.chriscartland.kitchensync.composeapp.MainKt"
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)
-            packageName = "com.cartland.kitchensync"
+            packageName = "com.chriscartland.kitchensync"
             packageVersion = "1.0.0"
         }
     }

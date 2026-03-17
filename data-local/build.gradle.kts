@@ -7,7 +7,7 @@ plugins {
 
 kotlin {
     androidLibrary {
-        namespace = "com.cartland.kitchensync.datalocal"
+        namespace = "com.chriscartland.kitchensync.datalocal"
         compileSdk =
             libs.versions.android.compileSdk
                 .get()

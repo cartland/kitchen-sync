@@ -7,7 +7,7 @@ plugins {
 
 kotlin {
     androidLibrary {
-        namespace = "com.cartland.kitchensync.presentationfeature"
+        namespace = "com.chriscartland.kitchensync.presentationfeature"
         compileSdk =
             libs.versions.android.compileSdk
                 .get()

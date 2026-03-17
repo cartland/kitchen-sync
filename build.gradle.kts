@@ -9,6 +9,11 @@ plugins {
     alias(libs.plugins.room) apply false
     alias(libs.plugins.spotless) apply false
     alias(libs.plugins.detekt) apply false
+    id("kitchen-sync.architecture-check")
+    id("kitchen-sync.theme-layer-check")
+    id("kitchen-sync.test-coverage-check")
+    id("kitchen-sync.naming-convention-check")
+    id("kitchen-sync.import-boundary-check")
 }
 
 allprojects {

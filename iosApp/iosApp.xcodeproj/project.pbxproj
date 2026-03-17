@@ -290,7 +290,7 @@
 					"-framework",
 					ComposeApp,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cartland.kitchensync;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chriscartland.kitchensync;
 				PRODUCT_NAME = KitchenSync;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -318,7 +318,7 @@
 					"-framework",
 					ComposeApp,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.cartland.kitchensync;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chriscartland.kitchensync;
 				PRODUCT_NAME = KitchenSync;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

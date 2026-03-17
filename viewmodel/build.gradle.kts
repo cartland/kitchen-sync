@@ -6,7 +6,7 @@ plugins {
 
 kotlin {
     androidLibrary {
-        namespace = "com.cartland.kitchensync.viewmodel"
+        namespace = "com.chriscartland.kitchensync.viewmodel"
         compileSdk =
             libs.versions.android.compileSdk
                 .get()
