@@ -22,3 +22,25 @@ sealed interface DataError : AppError {
         override val cause: Throwable? = null,
     ) : DataError
 }
+
+sealed interface AuthError : AppError {
+    data class Configuration(
+        override val message: String,
+        override val cause: Throwable? = null,
+    ) : AuthError
+
+    data class SignIn(
+        override val message: String,
+        override val cause: Throwable? = null,
+    ) : AuthError
+
+    data class NotAuthenticated(
+        override val message: String,
+        override val cause: Throwable? = null,
+    ) : AuthError
+
+    data class Unknown(
+        override val message: String,
+        override val cause: Throwable? = null,
+    ) : AuthError
+}
