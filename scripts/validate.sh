@@ -20,7 +20,10 @@ echo "--- 3b. Detekt ---"
 ./gradlew detekt --stacktrace
 
 echo "--- 3c. Custom Checks ---"
-./gradlew checkArchitecture checkThemeLayer checkTestCoverage checkNamingConventions checkImportBoundary
+./gradlew checkArchitecture checkThemeLayer checkTestCoverage checkNamingConventions checkDataStoreSingleton
+
+echo "--- 3d. Import Boundary Check ---"
+./gradlew checkImportBoundary
 
 echo "--- 4. Tests ---"
 ./gradlew test

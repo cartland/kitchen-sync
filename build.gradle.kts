@@ -14,6 +14,7 @@ plugins {
     id("kitchen-sync.test-coverage-check")
     id("kitchen-sync.naming-convention-check")
     id("kitchen-sync.import-boundary-check")
+    id("kitchen-sync.datastore-singleton-check")
 }
 
 allprojects {

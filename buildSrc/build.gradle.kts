@@ -28,5 +28,9 @@ gradlePlugin {
             id = "kitchen-sync.import-boundary-check"
             implementationClass = "importboundary.ImportBoundaryPlugin"
         }
+        register("datastore-singleton-check") {
+            id = "kitchen-sync.datastore-singleton-check"
+            implementationClass = "datastoreguard.DataStoreSingletonPlugin"
+        }
     }
 }
