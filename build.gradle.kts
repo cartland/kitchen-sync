@@ -10,6 +10,8 @@ plugins {
     id("kitchen-sync.import-boundary-check")
     id("kitchen-sync.datastore-singleton-check")
     id("kitchen-sync.preview-coverage-check")
+    id("kitchen-sync.preview-time-check")
+    id("kitchen-sync.hardcoded-string-check")
 }
 
 allprojects {

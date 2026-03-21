@@ -17,7 +17,7 @@ fun App() {
                 contentAlignment = Alignment.Center,
                 modifier = Modifier.fillMaxSize(),
             ) {
-                Text("Kitchen Sync")
+                Text("Kitchen Sync") // @StringResourceExempt — placeholder until compose-resources module
             }
         }
     }
