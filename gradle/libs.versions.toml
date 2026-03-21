@@ -44,15 +44,15 @@ kermit = { group = "co.touchlab", name = "kermit", version.ref = "kermit" }
 detekt-compose = { module = "io.nlopez.compose.rules:detekt", version.ref = "composeRules" }
 
 [plugins]
-androidApplication = { id = "com.android.application", version.ref = "agp" }
-androidLibrary = { id = "com.android.library", version.ref = "agp" }
+androidApplication = { id = "com.android.application" }
+androidLibrary = { id = "com.android.library" }
 composeMultiplatform = { id = "org.jetbrains.compose", version.ref = "composeMultiplatform" }
 composeCompiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-kotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
-kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+kotlinJvm = { id = "org.jetbrains.kotlin.jvm" }
+kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform" }
 spotless = { id = "com.diffplug.spotless", version.ref = "spotless" }
-androidKotlinMultiplatformLibrary = { id = "com.android.kotlin.multiplatform.library", version.ref = "agp" }
+androidKotlinMultiplatformLibrary = { id = "com.android.kotlin.multiplatform.library" }
 room = { id = "androidx.room", version.ref = "androidx-room" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
-kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version = "1.23.8" }
