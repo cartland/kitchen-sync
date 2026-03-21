@@ -37,7 +37,7 @@ jobs:
         run: ./gradlew detekt --stacktrace
 
       - name: Custom Checks
-        run: ./gradlew checkArchitecture checkThemeLayer checkTestCoverage checkNamingConventions checkDataStoreSingleton checkPreviewCoverage
+        run: ./gradlew checkArchitecture checkThemeLayer checkTestCoverage checkNamingConventions checkDataStoreSingleton checkPreviewCoverage checkPreviewTime checkHardcodedStrings
 
       - name: Import Boundary Check
         run: ./gradlew checkImportBoundary

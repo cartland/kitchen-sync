@@ -49,5 +49,13 @@ gradlePlugin {
             id = "kitchen-sync.preview-coverage-check"
             implementationClass = "screenshotcoverage.PreviewCoveragePlugin"
         }
+        register("preview-time-check") {
+            id = "kitchen-sync.preview-time-check"
+            implementationClass = "previewtime.PreviewTimePlugin"
+        }
+        register("hardcoded-string-check") {
+            id = "kitchen-sync.hardcoded-string-check"
+            implementationClass = "stringresource.HardcodedStringPlugin"
+        }
     }
 }
