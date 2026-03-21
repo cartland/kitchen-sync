@@ -45,5 +45,9 @@ gradlePlugin {
             id = "kitchen-sync.datastore-singleton-check"
             implementationClass = "datastoreguard.DataStoreSingletonPlugin"
         }
+        register("preview-coverage-check") {
+            id = "kitchen-sync.preview-coverage-check"
+            implementationClass = "screenshotcoverage.PreviewCoveragePlugin"
+        }
     }
 }
