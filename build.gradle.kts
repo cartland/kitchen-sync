@@ -9,6 +9,7 @@ plugins {
     id("kitchen-sync.naming-convention-check")
     id("kitchen-sync.import-boundary-check")
     id("kitchen-sync.datastore-singleton-check")
+    id("kitchen-sync.preview-coverage-check")
 }
 
 allprojects {
