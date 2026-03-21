@@ -19,6 +19,7 @@ kotlinx-datetime = "0.7.1-0.6.x-compat"
 uuid = "0.8.4"
 kermit = "2.0.4"
 composeRules = "0.4.12"
+screenshot = "0.0.1-alpha12"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -42,6 +43,9 @@ uuid = { group = "com.benasher44", name = "uuid", version.ref = "uuid" }
 compose-ui-tooling-preview = { module = "org.jetbrains.compose.ui:ui-tooling-preview", version.ref = "composeMultiplatform" }
 kermit = { group = "co.touchlab", name = "kermit", version.ref = "kermit" }
 detekt-compose = { module = "io.nlopez.compose.rules:detekt", version.ref = "composeRules" }
+screenshot-validation-api = { module = "com.android.tools.screenshot:screenshot-validation-api", version.ref = "screenshot" }
+compose-ui-test-junit4 = { module = "androidx.compose.ui:ui-test-junit4", version = "1.8.2" }
+compose-ui-test-manifest = { module = "androidx.compose.ui:ui-test-manifest", version = "1.8.2" }
 
 [plugins]
 androidApplication = { id = "com.android.application" }
@@ -56,3 +60,5 @@ room = { id = "androidx.room", version.ref = "androidx-room" }
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization" }
 detekt = { id = "io.gitlab.arturbosch.detekt", version = "1.23.8" }
+screenshot = { id = "com.android.compose.screenshot", version.ref = "screenshot" }
+kotlinAndroid = { id = "org.jetbrains.kotlin.android" }

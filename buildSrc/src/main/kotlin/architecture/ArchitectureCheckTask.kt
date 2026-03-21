@@ -34,6 +34,7 @@ abstract class ArchitectureCheckTask : DefaultTask() {
             "test-common",
         ),
         "test-common" to setOf("domain"),
+        "android-screenshot-tests" to setOf("domain", "presentation-core", "presentation-feature"),
     )
 
     @TaskAction
