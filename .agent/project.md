@@ -33,9 +33,20 @@ domain  →  usecase  →  data  →  presentation
 - **`domain`**: Pure Kotlin models and interfaces. No platform dependencies.
 - **`usecase`**: Business logic orchestration. Single-purpose classes. Depends only on `domain`.
 - **`data`**: Repository implementations, Room DAOs, Firestore data sources. Implements `domain` interfaces.
-- **`presentation`**: UI layer (Compose/SwiftUI). ViewModels consume use cases.
+- **`presentation-core`**: Shared UI components (theme, reusable composables). Pure composables only.
+- **`presentation-feature`**: Screen-level pure composables (`*Content` pattern). No ViewModels.
+- **`compose-app`**: Wires ViewModels to `*Content` composables. Only place ViewModels are consumed.
+- **`android-screenshot-tests`**: AGP Compose Screenshot Testing. Wraps `*Preview` composables in `@PreviewTest`.
 
 Dependency rule: inner layers never depend on outer layers.
+
+### Composable Convention (*Content Pattern)
+
+- **`*Content` composable** — pure function in `presentation-feature` taking data classes + lambdas, never a ViewModel
+- **`*Preview` composable** — in same file, `@Preview @Composable fun *Preview()` with fake data calling `*Content`
+- **Screenshot test wrapper** — in `android-screenshot-tests`, imports `*Preview` and wraps in `@PreviewTest` + `@Preview` (light/dark)
+- **ViewModel wiring** — only in `compose-app`, thin composable collecting state and passing to `*Content`
+- **`PreviewCoveragePlugin`** — enforces every `*Preview` in presentation modules has a screenshot test import
 
 ### Error Handling
 
@@ -66,7 +77,7 @@ Architecture decisions are documented as ADRs in `docs/architecture/`.
 - **Architecture**: AiEngine interface in domain, implementations in `:ai` module (Gemini cloud + on-device ML Kit). See ADR-009.
 - **Action model**: Prepare / Review / Execute — AI proposes actions, user reviews, execution via existing UseCases. See ADR-010.
 - **Tool pattern**: Domain capabilities exposed as read-only tools via ToolHandler interface. AI never writes data directly.
-- **Reference implementation**: Battery Butler at `/tmp/battery-butler/` — adapted patterns (AiEngine, ToolHandler, tool definitions)
+- **Reference implementation**: Battery Butler — clone fresh with `git clone https://github.com/cartland/battery-butler.git /tmp/battery-butler` (do NOT reuse stale `/tmp/battery-butler` without verifying `.git` exists)
 
 ## Documentation Principles
 
