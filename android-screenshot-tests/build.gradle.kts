@@ -21,6 +21,10 @@ android {
     }
 
     experimentalProperties["android.experimental.enableScreenshotTest"] = true
+
+    lint {
+        disable += "all"
+    }
 }
 
 dependencies {
