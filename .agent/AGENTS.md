@@ -131,7 +131,9 @@ Regardless of the role, the agent remains a tool, and the user retains ultimate 
 
 ## Task Management
 
-Use `bd` (Beads CLI) for cross-session project tracking. See `project.md` for quick reference.
+> **NOTE (2026-07-02):** Beads (`bd`) is no longer used for task tracking. Do not run, install, or reference it. Track follow-ups in the requirements docs (Open Questions / decisions.md) until a replacement tracker is chosen.
+
+~~Use `bd` (Beads CLI) for cross-session project tracking. See `project.md` for quick reference.~~
 
 ## File Index
 

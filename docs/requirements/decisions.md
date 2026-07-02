@@ -51,7 +51,7 @@ Decisions that span multiple features or don't belong to a single feature area.
 | Data export format: JSONL | Full data export as JSONL | 2026-03-15 |
 | No push notifications | No notifications for meal plans, shopping lists, or member changes | 2026-03-15 |
 | Dark mode from day one | Support dark mode in initial release | 2026-03-15 |
-| Onboarding: add recipes → plan meals | Default unnamed household created on first launch; name required when sharing | 2026-03-15 |
+| Onboarding: add recipes → plan meals | Default unnamed household created on first launch; ~~name required when sharing~~ — **Superseded** by "Household naming: deferred" below | 2026-03-15 |
 | AI integration: Gemini + on-device ML Kit | Cloud engine for quality, on-device for offline/privacy; AiEngine interface in domain (ADR-009) | 2026-03-15 |
 | AI action model: Prepare / Review / Execute | All AI outputs require user review before saving; AI never writes data directly (ADR-010) | 2026-03-15 |
 | AI tools are read-only | AI can query recipes, history, ratings (ratings deferred from MVP) via ToolHandler but has no write access | 2026-03-15 |
@@ -67,3 +67,6 @@ Decisions that span multiple features or don't belong to a single feature area.
 | **REVISED**: Recipe sections include Intro | Sections: Title, Intro, Ingredients, Preparation, Cooking; Intro added for recipe description/notes between title and ingredients | 2026-03-15 |
 | No cook time, prep time, or serving size on Recipe | Not needed for MVP; search filters updated to remove cook time | 2026-03-15 |
 | Data model documented in data-model.md | Single file for all entity definitions, fields, and relationships | 2026-03-15 |
+| MVP search scope: name + ingredients | Reaffirmed after UX audit; user-flows, USER_GUIDE, PROJECT_PLAN aligned; full-field fuzzy search deferred | 2026-07-02 |
+| Household naming: deferred | No naming UI in MVP; invites work on unnamed households; identity/data-model/onboarding docs aligned | 2026-07-02 |
+| Default launch tab: last-used | Recipes on first launch; returning users land on last-used tab; open question closed after UX audit | 2026-07-02 |

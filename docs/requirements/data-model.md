@@ -18,7 +18,7 @@ Entity definitions for Kitchen Sync. All entities include `createdTimestamp` and
 | Field | Type | Notes |
 |-------|------|-------|
 | householdId | string | |
-| name | string | Unnamed by default; required when sharing/inviting |
+| name | string | Unnamed by default; naming UI deferred (invites work on unnamed households) |
 
 ### Membership
 

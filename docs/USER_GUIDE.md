@@ -66,8 +66,8 @@ If you have a recipe from a website or message, you can paste it directly into t
 Use the search bar at the top of the Recipes tab to find recipes quickly.
 
 - Tap the search bar and type your query — the Add Recipe card hides while you search
-- Search matches across all recipe fields (title, ingredients, preparation, etc.)
-- Results show the recipe name plus relevant context from matching sections
+- Search matches recipe titles and ingredients
+- Results show the recipe name plus the matching ingredient context
 - Tap a result to open the full recipe
 
 ---

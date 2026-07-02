@@ -91,7 +91,7 @@ Architecture decisions are documented as ADRs in `docs/architecture/`.
 
 ## Resolved Questions (2026-03-15)
 
-- **Household model** → **MVP**: single household per user; default unnamed household on first launch; name required when sharing. Multi-household deferred.
+- **Household model** → **MVP**: single household per user; default unnamed household on first launch; naming UI deferred (invites work on unnamed households). Multi-household deferred.
 - **Roles** → **MVP**: single Owner + Members; Owner generates invite links. Full Admin/Member role system deferred.
 - **Invite links** → **MVP**: simple shareable links (no expiry or revocation). Expiry/revocation deferred.
 - **Leaving household** → data stays

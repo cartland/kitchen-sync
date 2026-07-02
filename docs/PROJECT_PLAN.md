@@ -116,7 +116,7 @@ Full recipe CRUD — the first user-visible feature.
 
 - Use cases: CRUD, search, hard delete
 - UI (Android + iOS in parallel): Recipe List, Detail, Editor
-- Search: fuzzy across all fields, contextual metadata in results
+- Search: by name and ingredients (full-field fuzzy search deferred), matching context in results
 - See [recipes.md](requirements/recipes.md) and [user-flows.md](requirements/user-flows.md) for full requirements
 
 ### Exit Criteria
@@ -130,7 +130,7 @@ Meal scheduling and basic shopping list — completes the first milestone.
 
 ### Sub-Discovery (resolve before implementation)
 
-- Default launch tab
+- Default launch tab (resolved: Recipes on first launch; last-used tab for returning users)
 - AI Suggest placement (Stage 4 or defer to Stage 8)
 - Shopping list lifecycle (resolved: computed fresh from meal plan entries; archiving deferred)
 
@@ -165,7 +165,7 @@ These stages are deliberately vague. Expand each one when Stages 0–4 are compl
 |----------|--------|--------|
 | ~~Snapshot vs live recipe references~~ | ~~Stage 2, 4~~ | ~~kitchen-sync-qdl~~ — **Resolved**: revision model replaces snapshots |
 | Version field for non-recipe entities | Stage 2 | [data-model.md](requirements/data-model.md) — recipes use revision model; other entities TBD |
-| Default launch tab | Stage 4 | kitchen-sync-46u |
+| ~~Default launch tab~~ | ~~Stage 4~~ | ~~kitchen-sync-46u~~ — **Resolved**: Recipes on first launch; last-used tab for returning users |
 | AI Suggest placement | Stage 4 or 8 | kitchen-sync-46u |
 | ~~Generate Shopping List trigger~~ | ~~Stage 4~~ | ~~kitchen-sync-46u~~ — **Resolved**: auto-computed on Shopping tab open |
 | ~~Shopping list lifecycle~~ | ~~Stage 4~~ | ~~kitchen-sync-46u~~ — **Resolved**: computed fresh from meal plan entries (archiving deferred) |

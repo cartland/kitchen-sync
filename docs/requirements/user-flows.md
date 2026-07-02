@@ -10,8 +10,6 @@ Map of the app: every screen, how they connect, and the key user journeys. This 
 - **Profile icon** (top-right) opens a dropdown menu: Manage Household, Settings, Sign Out
 - Default launch tab: Recipes (first launch) / last-used tab (returning user)
 
-> **NOTE (2026-07-02):** The returning-user launch tab is stated here (and in Screen 1 and USER_GUIDE.md) as decided, but the same question is listed under Open Questions below and tracked as an unresolved Stage 4 blocker in PROJECT_PLAN.md. Resolve the open question, or remove the last-used-tab behavior from this Goal section, Screen 1, and USER_GUIDE.md until decided. Tracked as kitchen-sync-46u.
-
 ### Screen Inventory
 
 #### Authentication & Household
@@ -160,19 +158,15 @@ The shopping list is **computed fresh from the meal plan** each time the Shoppin
 4. Share link externally (message, email, etc.)
 5. Recipient opens link → **Sign-In** (if needed) → joins household
 
-> **NOTE (2026-07-02):** identity.md, data-model.md, decisions.md, and .agent/project.md all require the household to be named before sharing/inviting, but no screen or flow provides a way to name it — Screen 2 (Manage Household) has no household-name field and this flow has no naming step, so the flow cannot satisfy its own precondition. Either add a naming field to Manage Household plus a "name your household" prompt when Generate Link is tapped on an unnamed household, or drop the naming rule from those four docs. Tracked as kitchen-sync-slp.
-
 #### 9. Search Recipes
 
 > User goal: Find a specific recipe.
 
 1. **Recipe List** — Tap search bar
 2. "Add Recipe" card disappears; type query
-3. Fuzzy text search across all recipe fields
-4. Results show recipe name + contextual metadata from matching sections (Ingredients, Preparation, etc.)
+3. Text search by recipe name and ingredients (full-field fuzzy search deferred)
+4. Results show recipe name + matching ingredient context
 5. Tap a result → **Recipe Detail**
-
-> **NOTE (2026-07-02):** MVP search scope is contradicted 3-vs-3 across the docs: this flow, USER_GUIDE.md, and PROJECT_PLAN.md (Stage 3) specify fuzzy search across all recipe fields, while recipes.md, decisions.md, and .agent/project.md ("Recipe search" resolved question) limit MVP search to name + ingredients only. Pick one scope and align all six locations. Tracked as kitchen-sync-jo5.
 
 ## Status
 
@@ -212,6 +206,7 @@ Not started.
 ### Other Deferred Items
 
 - **Recipe List filters**: Filter by rating, last cooked — deferred from initial release
+- **Full-field fuzzy search**: Fuzzy search across all recipe fields (Preparation, Intro, etc.) — MVP searches name + ingredients only
 - **Related Recipes links**: Bidirectional links between recipes on Recipe Detail — deferred from initial release
 - **AI Recipe Picker suggestions**: AI-powered suggestions in Recipe Picker — deferred to AI stage
 - **Invite Link Display screen**: Currently inline in Manage Household; may become its own screen if the flow grows more complex
@@ -231,9 +226,11 @@ Not started.
 - **Calendar integration surface**: In-app calendar view, or only push events to Google Calendar? Where does the user trigger sync?
 - **AI Suggest placement**: Where does the "AI Suggest" button live on the Meal Plan Timeline?
 - **Meal Plan history**: How does the user browse past meal plans? Scroll up in the timeline, or a separate history view?
-- **Default launch tab**: Should returning users land on last-used tab, Meal Plan (most actionable), or Recipes?
 
 ## Resolved Questions
 
+- **Default launch tab**: Recipes on first launch; returning users land on their last-used tab (confirmed 2026-07-02).
+- **MVP search scope**: name + ingredients only; full-field fuzzy search deferred (confirmed 2026-07-02).
+- **Household naming**: naming UI deferred; invites work on unnamed households (confirmed 2026-07-02).
 - **Shopping list lifecycle**: shopping list is computed fresh from meal plan entries. Deleting a meal plan entry removes its ingredients from the list (MVP: hard delete; archiving deferred).
 - **Generate Shopping List trigger**: shopping list is auto-computed when the Shopping tab is opened; no explicit trigger needed.
