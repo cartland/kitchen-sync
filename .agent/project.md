@@ -98,7 +98,7 @@ Architecture decisions are documented as ADRs in `docs/architecture/`.
 - **Recipe Markdown template** → restricted Markdown (headers, bullets, bold); sections: Title, Intro, Ingredients, Preparation, Cooking
 - **Recipe ownership** → any household member can edit any recipe
 - **Ingredient units** → typed sealed class (metric + imperial) plus freeform text variant (no math on freeform)
-- **Servings & scaling** → freeform text for serving size; no automatic scaling
+- **Servings & scaling** → no serving-size field on Recipe (superseded by "No cook time, prep time, or serving size on Recipe" in decisions.md); no automatic scaling
 - **Related recipes** → bidirectional links between any two recipes
 - **Meal slot** → single recipe per slot; no multi-recipe meals
 - **Recurring meals** → deferred; not needed for first release

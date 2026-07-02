@@ -10,6 +10,8 @@ Map of the app: every screen, how they connect, and the key user journeys. This 
 - **Profile icon** (top-right) opens a dropdown menu: Manage Household, Settings, Sign Out
 - Default launch tab: Recipes (first launch) / last-used tab (returning user)
 
+> **NOTE (2026-07-02):** The returning-user launch tab is stated here (and in Screen 1 and USER_GUIDE.md) as decided, but the same question is listed under Open Questions below and tracked as an unresolved Stage 4 blocker in PROJECT_PLAN.md. Resolve the open question, or remove the last-used-tab behavior from this Goal section, Screen 1, and USER_GUIDE.md until decided.
+
 ### Screen Inventory
 
 #### Authentication & Household
@@ -66,7 +68,7 @@ The shopping list is **computed fresh from the meal plan** each time the Shoppin
 1. **Ingredients from all meal plan entries** are aggregated into the shopping list
 2. **Deleting a meal plan entry** removes its ingredients from the shopping list
 3. **Checked items** sink below unchecked items; order within each group is determined by the order items were added (most recently checked item on top of checked group)
-6. **Tapping an item** copies its name to the clipboard for pasting into external shopping apps
+4. **Tapping an item's name** copies it to the clipboard for pasting into external shopping apps (the checkbox, not the name, toggles checked state)
 
 ### Empty States
 
@@ -158,6 +160,8 @@ The shopping list is **computed fresh from the meal plan** each time the Shoppin
 4. Share link externally (message, email, etc.)
 5. Recipient opens link → **Sign-In** (if needed) → joins household
 
+> **NOTE (2026-07-02):** identity.md, data-model.md, decisions.md, and .agent/project.md all require the household to be named before sharing/inviting, but no screen or flow provides a way to name it — Screen 2 (Manage Household) has no household-name field and this flow has no naming step, so the flow cannot satisfy its own precondition. Either add a naming field to Manage Household plus a "name your household" prompt when Generate Link is tapped on an unnamed household, or drop the naming rule from those four docs.
+
 #### 9. Search Recipes
 
 > User goal: Find a specific recipe.
@@ -167,6 +171,8 @@ The shopping list is **computed fresh from the meal plan** each time the Shoppin
 3. Fuzzy text search across all recipe fields
 4. Results show recipe name + contextual metadata from matching sections (Ingredients, Preparation, etc.)
 5. Tap a result → **Recipe Detail**
+
+> **NOTE (2026-07-02):** MVP search scope is contradicted 3-vs-3 across the docs: this flow, USER_GUIDE.md, and PROJECT_PLAN.md (Stage 3) specify fuzzy search across all recipe fields, while recipes.md, decisions.md, and .agent/project.md ("Recipe search" resolved question) limit MVP search to name + ingredients only. Pick one scope and align all six locations.
 
 ## Status
 

@@ -17,7 +17,7 @@ Decisions that span multiple features or don't belong to a single feature area.
 | Error handling: Result\<D, E\> sealed type | Never throw (except CancellationException), exhaustive when expressions | 2026-03-15 |
 | CI: GitHub Actions | Build, test, lint, format check on every PR from day one | 2026-03-15 |
 | First milestone: Recipes + meal plan | Core loop: enter recipes, plan meals for the week | 2026-03-15 |
-| ~~Household model: single per user~~ | ~~One household membership at a time~~ — **Superseded** by "Multiple households per user" below | 2026-03-15 |
+| ~~Household model: single per user~~ | ~~One household membership at a time~~ — **Superseded** by "Household: single per user for MVP" below (multi-household deferred, no longer ruled out) | 2026-03-15 |
 | Recipe search: full search (filters deferred) | Search by name/ingredients; rating and last-cooked filters deferred with ratings | 2026-03-15 |
 | Conflict resolution UI: deferred | Target: show both versions, user picks "mine" or "theirs"; deferred — MVP uses last-write-wins | 2026-03-15 |
 | Testing strategy: full pyramid | Unit + integration + E2E tests | 2026-03-15 |
@@ -36,7 +36,7 @@ Decisions that span multiple features or don't belong to a single feature area.
 | Recipe Markdown: restricted format | Headers, bullets, bold only; sections: Title, Intro, Ingredients, Preparation, Cooking | 2026-03-15 |
 | Any member can edit any recipe | No per-recipe ownership; all household members have equal edit access | 2026-03-15 |
 | Ingredient units: typed + freeform | Sealed class with metric/imperial units plus freeform text (no math on freeform) | 2026-03-15 |
-| No ingredient scaling | Serving size is freeform text; no automatic scaling of ingredients | 2026-03-15 |
+| No ingredient scaling | No automatic scaling of ingredients; ~~serving size is freeform text~~ — **Superseded** by "No cook time, prep time, or serving size on Recipe" below | 2026-03-15 |
 | Single recipe per meal slot | No multi-recipe meals; use "related recipes" for bidirectional linking | 2026-03-15 |
 | No recurring meals | Deferred; not needed for first release | 2026-03-15 |
 | Default plan duration: one week | Meal plans default to a week | 2026-03-15 |
