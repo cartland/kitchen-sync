@@ -7,7 +7,7 @@ Authentication and household membership model.
 - Google sign-in for authentication (aligns with Google Calendar integration)
 - Household model: multiple members share recipes, plans, and shopping lists
 - **Single household per user for MVP**; multi-household support deferred
-- Default household created on first launch (unnamed); household name required when sharing/inviting
+- Default household created on first launch (unnamed); households can stay unnamed — naming UI deferred, invites work on unnamed households
 - Roles per household: **Owner** (single) and **Member**
   - Owner can: generate invite links
   - Members can: view and edit all shared data (recipes, plans, shopping lists)
@@ -24,6 +24,7 @@ Not started.
 ## Deferred
 
 - **Multiple households per user**: Users belong to more than one household with active household switcher — deferred; single household for MVP
+- **Household naming**: No naming UI in MVP; invites work on unnamed households — deferred (2026-07-02)
 - **Admin/Member role system**: Multiple admins, role changes, member removal, auto-promotion on last admin departure — deferred; single owner + members for MVP
 - **Invite link expiry and revocation**: 1-day expiry, revocable by admins — deferred; simple non-expiring links for MVP
 - **Member removal by admin**: Admins can remove members from household — deferred

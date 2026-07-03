@@ -24,6 +24,8 @@ Not started.
 
 ## Not Doing
 
+- In-app calendar view — *Reason: the Meal Plan Timeline is the in-app surface; the app pushes events to Google Calendar (push-only, decided 2026-07-02)*
+
 ## Open Questions
 
 - Calendar selection, two-way sync, and shared events depend on Google Calendar API capabilities — finalize during implementation

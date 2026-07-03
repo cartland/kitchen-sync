@@ -17,7 +17,7 @@ Decisions that span multiple features or don't belong to a single feature area.
 | Error handling: Result\<D, E\> sealed type | Never throw (except CancellationException), exhaustive when expressions | 2026-03-15 |
 | CI: GitHub Actions | Build, test, lint, format check on every PR from day one | 2026-03-15 |
 | First milestone: Recipes + meal plan | Core loop: enter recipes, plan meals for the week | 2026-03-15 |
-| ~~Household model: single per user~~ | ~~One household membership at a time~~ — **Superseded** by "Multiple households per user" below | 2026-03-15 |
+| ~~Household model: single per user~~ | ~~One household membership at a time~~ — **Superseded** by "Household: single per user for MVP" below (multi-household deferred, no longer ruled out) | 2026-03-15 |
 | Recipe search: full search (filters deferred) | Search by name/ingredients; rating and last-cooked filters deferred with ratings | 2026-03-15 |
 | Conflict resolution UI: deferred | Target: show both versions, user picks "mine" or "theirs"; deferred — MVP uses last-write-wins | 2026-03-15 |
 | Testing strategy: full pyramid | Unit + integration + E2E tests | 2026-03-15 |
@@ -36,7 +36,7 @@ Decisions that span multiple features or don't belong to a single feature area.
 | Recipe Markdown: restricted format | Headers, bullets, bold only; sections: Title, Intro, Ingredients, Preparation, Cooking | 2026-03-15 |
 | Any member can edit any recipe | No per-recipe ownership; all household members have equal edit access | 2026-03-15 |
 | Ingredient units: typed + freeform | Sealed class with metric/imperial units plus freeform text (no math on freeform) | 2026-03-15 |
-| No ingredient scaling | Serving size is freeform text; no automatic scaling of ingredients | 2026-03-15 |
+| No ingredient scaling | No automatic scaling of ingredients; ~~serving size is freeform text~~ — **Superseded** by "No cook time, prep time, or serving size on Recipe" below | 2026-03-15 |
 | Single recipe per meal slot | No multi-recipe meals; use "related recipes" for bidirectional linking | 2026-03-15 |
 | No recurring meals | Deferred; not needed for first release | 2026-03-15 |
 | Default plan duration: one week | Meal plans default to a week | 2026-03-15 |
@@ -51,7 +51,7 @@ Decisions that span multiple features or don't belong to a single feature area.
 | Data export format: JSONL | Full data export as JSONL | 2026-03-15 |
 | No push notifications | No notifications for meal plans, shopping lists, or member changes | 2026-03-15 |
 | Dark mode from day one | Support dark mode in initial release | 2026-03-15 |
-| Onboarding: add recipes → plan meals | Default unnamed household created on first launch; name required when sharing | 2026-03-15 |
+| Onboarding: add recipes → plan meals | Default unnamed household created on first launch; ~~name required when sharing~~ — **Superseded** by "Household naming: deferred" below | 2026-03-15 |
 | AI integration: Gemini + on-device ML Kit | Cloud engine for quality, on-device for offline/privacy; AiEngine interface in domain (ADR-009) | 2026-03-15 |
 | AI action model: Prepare / Review / Execute | All AI outputs require user review before saving; AI never writes data directly (ADR-010) | 2026-03-15 |
 | AI tools are read-only | AI can query recipes, history, ratings (ratings deferred from MVP) via ToolHandler but has no write access | 2026-03-15 |
@@ -67,3 +67,10 @@ Decisions that span multiple features or don't belong to a single feature area.
 | **REVISED**: Recipe sections include Intro | Sections: Title, Intro, Ingredients, Preparation, Cooking; Intro added for recipe description/notes between title and ingredients | 2026-03-15 |
 | No cook time, prep time, or serving size on Recipe | Not needed for MVP; search filters updated to remove cook time | 2026-03-15 |
 | Data model documented in data-model.md | Single file for all entity definitions, fields, and relationships | 2026-03-15 |
+| MVP search scope: name + ingredients | Reaffirmed after UX audit; user-flows, USER_GUIDE, PROJECT_PLAN aligned; full-field fuzzy search deferred | 2026-07-02 |
+| Household naming: deferred | No naming UI in MVP; invites work on unnamed households; identity/data-model/onboarding docs aligned | 2026-07-02 |
+| Default launch tab: last-used | Recipes on first launch; returning users land on last-used tab; open question closed after UX audit | 2026-07-02 |
+| No version field for non-recipe entities | MVP sync is LWW on created/updated timestamps; versioning added with conflict detection (Stage 6) | 2026-07-02 |
+| AI Suggest placement: deferred to Stage 8 | Stage 4 ships the Meal Plan Timeline without an AI button; placement decided with the AI proposal flow | 2026-07-02 |
+| Meal plan history: timeline scroll-up | Past days live above today in the infinite timeline; no separate history screen for MVP | 2026-07-02 |
+| Calendar surface: push-only | App creates Google Calendar events; Meal Plan Timeline is the in-app view; no in-app calendar screen | 2026-07-02 |

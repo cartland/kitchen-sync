@@ -10,11 +10,11 @@ Consolidated grocery lists with checkout flow.
 - Manual items: users can add items to the shopping list that aren't from recipes
 - Each line cites its source recipe (if generated from a recipe) so you know where ingredients will be used
 - Built-in database of common ingredients maps to grocery categories; category assignment is optional (uncategorized items are fine)
-- Checkable list: tap items to check them off while shopping, state persists during the trip
+- Checkable list: tap an item's checkbox to check it off while shopping, state persists during the trip
 - Checked items gray out in place (strikethrough), sink below unchecked items; can be unchecked during shopping
 - Copy export of remaining (unchecked) items grouped by grocery category (produce, dairy, meat, etc.)
 - Shopping list items show meal date badge linking to source recipe and meal plan day
-- Tapping an item copies its name to the clipboard for pasting into external shopping apps
+- Tapping an item's name copies it to the clipboard for pasting into external shopping apps (the checkbox, not the name, toggles checked state)
 
 ## Status
 

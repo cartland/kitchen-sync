@@ -6,6 +6,7 @@ Historical records, variety tracking, and recipe suggestions.
 
 - Meal history is implicitly stored via meal plan entries and recipe revisions (no separate history entity needed for MVP)
 - Each meal plan entry references a specific recipe revision (via recipeId + revision number)
+- Browsing past meals: scroll up in the Meal Plan Timeline (past days above today); no separate history screen for MVP
 
 ## Status
 

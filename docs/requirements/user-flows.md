@@ -66,7 +66,7 @@ The shopping list is **computed fresh from the meal plan** each time the Shoppin
 1. **Ingredients from all meal plan entries** are aggregated into the shopping list
 2. **Deleting a meal plan entry** removes its ingredients from the shopping list
 3. **Checked items** sink below unchecked items; order within each group is determined by the order items were added (most recently checked item on top of checked group)
-6. **Tapping an item** copies its name to the clipboard for pasting into external shopping apps
+4. **Tapping an item's name** copies it to the clipboard for pasting into external shopping apps (the checkbox, not the name, toggles checked state)
 
 ### Empty States
 
@@ -164,8 +164,8 @@ The shopping list is **computed fresh from the meal plan** each time the Shoppin
 
 1. **Recipe List** — Tap search bar
 2. "Add Recipe" card disappears; type query
-3. Fuzzy text search across all recipe fields
-4. Results show recipe name + contextual metadata from matching sections (Ingredients, Preparation, etc.)
+3. Text search by recipe name and ingredients (full-field fuzzy search deferred)
+4. Results show recipe name + matching ingredient context
 5. Tap a result → **Recipe Detail**
 
 ## Status
@@ -206,6 +206,7 @@ Not started.
 ### Other Deferred Items
 
 - **Recipe List filters**: Filter by rating, last cooked — deferred from initial release
+- **Full-field fuzzy search**: Fuzzy search across all recipe fields (Preparation, Intro, etc.) — MVP searches name + ingredients only
 - **Related Recipes links**: Bidirectional links between recipes on Recipe Detail — deferred from initial release
 - **AI Recipe Picker suggestions**: AI-powered suggestions in Recipe Picker — deferred to AI stage
 - **Invite Link Display screen**: Currently inline in Manage Household; may become its own screen if the flow grows more complex
@@ -222,12 +223,13 @@ Not started.
 
 ## Open Questions
 
-- **Calendar integration surface**: In-app calendar view, or only push events to Google Calendar? Where does the user trigger sync?
-- **AI Suggest placement**: Where does the "AI Suggest" button live on the Meal Plan Timeline?
-- **Meal Plan history**: How does the user browse past meal plans? Scroll up in the timeline, or a separate history view?
-- **Default launch tab**: Should returning users land on last-used tab, Meal Plan (most actionable), or Recipes?
-
 ## Resolved Questions
 
+- **Calendar integration surface**: push-only — the app creates Google Calendar events; the Meal Plan Timeline remains the in-app view. Calendar selection and two-way sync details finalized during Stage 9 (confirmed 2026-07-02).
+- **AI Suggest placement**: deferred to Stage 8 — Stage 4 ships the timeline without an AI button; placement decided with the AI proposal flow (confirmed 2026-07-02).
+- **Meal Plan history**: scroll up in the timeline (past days above today); no separate history view for MVP (confirmed 2026-07-02).
+- **Default launch tab**: Recipes on first launch; returning users land on their last-used tab (confirmed 2026-07-02).
+- **MVP search scope**: name + ingredients only; full-field fuzzy search deferred (confirmed 2026-07-02).
+- **Household naming**: naming UI deferred; invites work on unnamed households (confirmed 2026-07-02).
 - **Shopping list lifecycle**: shopping list is computed fresh from meal plan entries. Deleting a meal plan entry removes its ingredients from the list (MVP: hard delete; archiving deferred).
 - **Generate Shopping List trigger**: shopping list is auto-computed when the Shopping tab is opened; no explicit trigger needed.

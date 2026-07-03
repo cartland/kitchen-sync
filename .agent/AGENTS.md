@@ -128,10 +128,14 @@ Regardless of the role, the agent remains a tool, and the user retains ultimate 
   - PR: `Write` to `.tmp/pr-body.txt`, then `Bash(gh pr create --title "..." --body-file .tmp/pr-body.txt)`
 - This ensures each Bash call starts with an allowed prefix (`git commit`, `gh pr create`) with no chaining.
 - **`.tmp/` files persist across sessions** — always `Read` the file first (even if it might not exist) before `Write`, otherwise Write will fail with "File has not been read yet".
+- **`git -C <path>` is blocked** by the guardrail hooks — run git from the repository root (or the current worktree) instead.
+- **Direct writes to `.beads/` files are blocked** by hooks. Beads is deprecated (see Task Management) — leave `.beads/` untouched.
 
 ## Task Management
 
-Use `bd` (Beads CLI) for cross-session project tracking. See `project.md` for quick reference.
+> **NOTE (2026-07-02):** Beads (`bd`) is no longer used for task tracking. Do not run, install, or reference it. Track follow-ups in the requirements docs (Open Questions / decisions.md) until a replacement tracker is chosen.
+
+~~Use `bd` (Beads CLI) for cross-session project tracking. See `project.md` for quick reference.~~
 
 ## File Index
 
