@@ -141,40 +141,16 @@ Architecture decisions are documented as ADRs in `docs/architecture/`.
 
 ## Task Management
 
-### `bd` (Beads CLI)
+> **NOTE (2026-07-02):** Beads (`bd`) is no longer used for task tracking. Do not run, install, or reference it. Track follow-ups as Open Questions in the requirements docs and record decisions in `decisions.md` until a replacement tracker is chosen. Leave `.beads/` untouched (direct writes are also blocked by hooks).
 
-Use `bd` for all task/issue management. **Never modify `.beads/issues.jsonl` directly.** Run `bd help` for full command list.
+## UX Consistency Audit (2026-07-02)
 
-```bash
-# Quick reference
-bd init              # Initialize in a git repo
-bd create "task"     # Create a task
-bd list              # List tasks
-bd show <id>         # Show task details
-bd close <id>        # Mark task complete
-bd help              # See all commands
+A multi-agent audit of the requirements/design docs (PR #34) checked terminology, decision drift, flow consistency, user-guide accuracy, and spec quality. Six findings were confirmed and resolved, and all PROJECT_PLAN stage blockers were closed alongside. Knowledge worth keeping:
 
-# Session workflow
-bd ready             # Show tasks ready to work on (no blockers)
-bd list              # List all open issues
-bd create "Title" --type task --priority P2  # Create a task
-bd close <id> --reason "Fixed in PR #123"    # Mark complete
-bd search "login"    # Search by text
-```
-
-### Committing Beads Changes
-
-Beads files should be committed to git like any other code:
-
-```bash
-# Include with code changes (recommended)
-git add src/... .beads/issues.jsonl
-git commit -m "feat: Add feature X (closes bb-123)"
-
-# Standalone beads update (when no code changes)
-git add .beads/
-git commit -m "chore(beads): Update task tracking"
-```
+- Two candidate findings were adversarially verified and are **not** defects — do not re-flag:
+  - "Checked items gray out **in place**" (decisions.md) vs "**sink below** unchecked items" (shopping.md, user-flows.md) is not a contradiction: "in place" refers to visibility (strikethrough, remains visible, can be unchecked), which is compatible with repositioning; all detailed specs agree on strikethrough + sink.
+  - Shopping-list "accumulation from ever-growing meal plan history" is already covered by the resolved shopping-list-lifecycle decision (computed fresh from meal plan entries) plus the deferred archiving decision.
+- Remaining open items across all docs: two technical data-model questions (ingredient quantity/unit storage types — settle during Stage 2 implementation) and Stage 9 calendar API capability details.
 
 ## File Index
 
