@@ -87,7 +87,15 @@ Architecture decisions are documented as ADRs in `docs/architecture/`.
 
 ## Open Questions
 
-- Calendar integration details depend on Google Calendar API capabilities
+- Calendar integration details (calendar selection, two-way sync, shared events) depend on Google Calendar API capabilities — finalize during Stage 9
+
+## Resolved Questions (2026-07-02)
+
+- **Default launch tab** → Recipes on first launch; returning users land on last-used tab
+- **Version field for non-recipe entities** → none for MVP; LWW on created/updated timestamps; versioning added with conflict detection (Stage 6)
+- **AI Suggest placement** → deferred to Stage 8; Stage 4 ships the timeline without an AI button
+- **Meal plan history browsing** → scroll up in the timeline (past above today); no separate history screen for MVP
+- **Calendar surface** → push-only; app creates Google Calendar events and the Meal Plan Timeline is the in-app view
 
 ## Resolved Questions (2026-03-15)
 

@@ -223,12 +223,11 @@ Not started.
 
 ## Open Questions
 
-- **Calendar integration surface**: In-app calendar view, or only push events to Google Calendar? Where does the user trigger sync?
-- **AI Suggest placement**: Where does the "AI Suggest" button live on the Meal Plan Timeline?
-- **Meal Plan history**: How does the user browse past meal plans? Scroll up in the timeline, or a separate history view?
-
 ## Resolved Questions
 
+- **Calendar integration surface**: push-only — the app creates Google Calendar events; the Meal Plan Timeline remains the in-app view. Calendar selection and two-way sync details finalized during Stage 9 (confirmed 2026-07-02).
+- **AI Suggest placement**: deferred to Stage 8 — Stage 4 ships the timeline without an AI button; placement decided with the AI proposal flow (confirmed 2026-07-02).
+- **Meal Plan history**: scroll up in the timeline (past days above today); no separate history view for MVP (confirmed 2026-07-02).
 - **Default launch tab**: Recipes on first launch; returning users land on their last-used tab (confirmed 2026-07-02).
 - **MVP search scope**: name + ingredients only; full-field fuzzy search deferred (confirmed 2026-07-02).
 - **Household naming**: naming UI deferred; invites work on unnamed households (confirmed 2026-07-02).

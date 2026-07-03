@@ -70,3 +70,7 @@ Decisions that span multiple features or don't belong to a single feature area.
 | MVP search scope: name + ingredients | Reaffirmed after UX audit; user-flows, USER_GUIDE, PROJECT_PLAN aligned; full-field fuzzy search deferred | 2026-07-02 |
 | Household naming: deferred | No naming UI in MVP; invites work on unnamed households; identity/data-model/onboarding docs aligned | 2026-07-02 |
 | Default launch tab: last-used | Recipes on first launch; returning users land on last-used tab; open question closed after UX audit | 2026-07-02 |
+| No version field for non-recipe entities | MVP sync is LWW on created/updated timestamps; versioning added with conflict detection (Stage 6) | 2026-07-02 |
+| AI Suggest placement: deferred to Stage 8 | Stage 4 ships the Meal Plan Timeline without an AI button; placement decided with the AI proposal flow | 2026-07-02 |
+| Meal plan history: timeline scroll-up | Past days live above today in the infinite timeline; no separate history screen for MVP | 2026-07-02 |
+| Calendar surface: push-only | App creates Google Calendar events; Meal Plan Timeline is the in-app view; no in-app calendar screen | 2026-07-02 |
